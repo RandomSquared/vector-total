@@ -1,0 +1,49 @@
+[gd_scene format=4 uid="uid://dra8tp8kp3rp2"]
+
+[ext_resource type="Texture2D" uid="uid://ciuh7r2jg8fej" path="res://tileset.png" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://dxsmjx1gh61jv" path="res://Verity.webp" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://bkubs6juogcp4" path="res://player.gd" id="2_0hol4"]
+[ext_resource type="Texture2D" uid="uid://2et13s4ubawc" path="res://arrow.png" id="3_0hol4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
+texture = ExtResource("1_epypp")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_kdubu"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_q6r6c")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+
+[node name="Node2D" type="Node2D" unique_id=900538971]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=865385557]
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAD8/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD6/wMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_kdubu")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1893345640]
+scale = Vector2(8, 8)
+script = ExtResource("2_0hol4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1970370826]
+shape = SubResource("CircleShape2D_0e48y")
+
+[node name="circle" type="Sprite2D" parent="Player" unique_id=337544947]
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("1_wtcfe")
+
+[node name="Camera" type="Camera2D" parent="Player" unique_id=691649268]
+position_smoothing_enabled = true
+
+[node name="pivot" type="Node2D" parent="Player" unique_id=1968029449]
+
+[node name="arrow" type="Sprite2D" parent="Player/pivot" unique_id=1540788157]
+position = Vector2(20, 0)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_0hol4")
