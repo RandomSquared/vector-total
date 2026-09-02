@@ -7,12 +7,21 @@ var horizontality = 0
 var velh = 0
 var velv = 0
 @export var multh = 10
-@export var multv = 15
+@export var multv = 10
 @onready var pivot = $pivot
+@onready var camera = $Camera
+var targetzoom = 1
+var zoomchange = 0
+var multz = 1
 
 func _physics_process(delta: float) -> void:
-	#movement bs
+	#ensure momentum isnt built up
+	if is_on_floor():
+		velv = 0
+	if is_on_wall():
+		velh = 0
 	
+	#movement bs
 	if Input.get_axis("up", "down") != 0:
 		verticality = Input.get_axis("up", "down")
 	if Input.get_axis("left", "right") != 0:
@@ -31,8 +40,7 @@ func _physics_process(delta: float) -> void:
 		velv += verticality * multv
 		
 	#gravity & drag & mults
-	if not is_on_floor():
-		velv += gravity
+	velv += gravity
 	velv = velv * (1-drag)
 	velh = velh * (1-drag)
 	
@@ -46,6 +54,18 @@ func _physics_process(delta: float) -> void:
 		pivot.hide()
 	else:
 		pivot.show()
+		
+	#camerawork
+	var totalvel = abs(velv) + abs(velh)
+	var target_zoom_value = clamp(remap(totalvel, 0, 1000, 1.0, 0.5), 0.5, 1)
+	var target_zoom_vector = Vector2(target_zoom_value, target_zoom_value)
+	camera.zoom = camera.zoom.lerp(target_zoom_vector, 0.1)
+	
+	#restart
+	if Input.is_action_just_pressed("restart"):
+		self.position = Vector2(0,0)
+	
+	
 	
 	
 	

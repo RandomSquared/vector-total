@@ -1,9 +1,14 @@
 [gd_scene format=4 uid="uid://dra8tp8kp3rp2"]
 
 [ext_resource type="Texture2D" uid="uid://ciuh7r2jg8fej" path="res://tileset.png" id="1_epypp"]
-[ext_resource type="Texture2D" uid="uid://dxsmjx1gh61jv" path="res://Verity.webp" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://bkubs6juogcp4" path="res://player.gd" id="2_0hol4"]
-[ext_resource type="Texture2D" uid="uid://2et13s4ubawc" path="res://arrow.png" id="3_0hol4"]
+[ext_resource type="FontFile" uid="uid://jw47yk0supur" path="res://rainyhearts.ttf" id="2_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://c563q7v0k1orn" path="res://arrow.png" id="3_0hol4"]
+[ext_resource type="Script" uid="uid://bt3ogkxhfjrwq" path="res://fadetext.gd" id="3_kdubu"]
+[ext_resource type="Texture2D" uid="uid://bmypg8t7u1542" path="res://player.png" id="3_q6r6c"]
+[ext_resource type="AudioStream" uid="uid://2qtrat3lcoe7" path="res://music/algebra-c1.wav" id="7_4d7sh"]
+[ext_resource type="AudioStream" uid="uid://dbbqtivxfpand" path="res://music/algebra-s1.wav" id="8_ir8iy"]
+[ext_resource type="Script" uid="uid://da7d1v4i3jcpm" path="res://algebra_s_1.gd" id="9_hqns4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
 texture = ExtResource("1_epypp")
@@ -13,37 +18,116 @@ texture = ExtResource("1_epypp")
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_kdubu"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_q6r6c")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+radius = 8.0
 
 [node name="Node2D" type="Node2D" unique_id=900538971]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=865385557]
+[node name="Main Map" type="TileMapLayer" parent="." unique_id=865385557]
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAD8/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD6/wMAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9/wMAAAABAAAAAAD+/wMAAAABAAAAAAD//wMAAAABAAAAAAAAAAMAAAABAAAAAAABAAMAAAABAAAAAAACAAMAAAABAAAAAAADAAMAAAABAAAAAAAEAAMAAAABAAAAAAAFAAMAAAABAAAAAAAGAAMAAAABAAAAAAD8/wMAAAABAAAAAAD7/wMAAAABAAAAAAD6/wMAAAABAAAAAAD5/wIAAAADAAAAAAD5/wEAAAADAAAAAAD5////AAADAAAAAAD5/wAAAAADAAAAAAD5/wMAAAADAAAAAAAHAAMAAAABAAAAAAD4////AAACAAAAAAD4/wAAAAACAAAAAAD4/wEAAAACAAAAAAD4/wIAAAACAAAAAAD4/wMAAAACAAAAAAD5/wQAAAADAAAAAAD5/wUAAAADAAAAAAD4/wQAAAACAAAAAAD4/wUAAAACAAAAAAD4/wYAAAACAAAAAAD4/wcAAAACAAAAAAD4/wgAAAACAAAAAAD4/wkAAAACAAAAAAD4/woAAAACAAAAAAD4/wsAAAACAAAAAAD5/wYAAAADAAAAAAD5/wcAAAADAAAAAAD5/wgAAAADAAAAAAD5/wkAAAADAAAAAAD5/woAAAADAAAAAAD5/wsAAAADAAAAAAD5//j/AAADAAAAAAD5//n/AAADAAAAAAD5//r/AAADAAAAAAD5//v/AAADAAAAAAD5//z/AAADAAAAAAD5//3/AAADAAAAAAD5//7/AAADAAAAAAD4//b/AAACAAAAAAD4//f/AAACAAAAAAD4//j/AAACAAAAAAD4//n/AAACAAAAAAD4//r/AAACAAAAAAD4//v/AAACAAAAAAD4//z/AAACAAAAAAD4//3/AAACAAAAAAD4//7/AAACAAAAAAD5//b/AAADAAAAAAD5//f/AAADAAAAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAKAAMAAAABAAAAAAALAAMAAAABAAAAAAAMAAMAAAABAAAAAAANAAMAAAABAAAAAAAOAAMAAAABAAAAAAAPAAMAAAABAAAAAAAQAAMAAAABAAAAAAARAAMAAAABAAAAAAASAAMAAAABAAAAAAATAAMAAAABAAAAAAAUAAMAAAABAAAAAAAVAAMAAAABAAAAAAAWAAMAAAABAAAAAAAXAAMAAAABAAAAAAAYAAMAAAABAAAAAAAZAAMAAAABAAAAAAAaAAMAAAABAAAAAAAbAAMAAAABAAAAAAAcAAMAAAABAAAAAAAdAAMAAAABAAAAAAAeAAMAAAABAAAAAAAfAAMAAAABAAAAAAAgAAMAAAABAAAAAAAhAAMAAAABAAAAAAAiAAMAAAABAAAAAAAjAAMAAAABAAAAAAAkAAMAAAABAAAAAAAlAAMAAAABAAAAAAAmAAMAAAABAAAAAAAnAAMAAAABAAAAAAAoAAMAAAABAAAAAAApAAMAAAABAAAAAAAqAAMAAAABAAAAAAA0AAQAAAABAAAAAAA1AAQAAAABAAAAAAA2AAQAAAABAAAAAAA3AAQAAAABAAAAAAA4AAQAAAABAAAAAAA5AAQAAAABAAAAAAA6AAQAAAABAAAAAAA7AAQAAAABAAAAAAA8AAQAAAABAAAAAAAqAAQAAAAAAAAAAAAqAAUAAAAAAAAAAAAqAAYAAAAAAAAAAAAqAAcAAAAAAAAAAAAqAAgAAAAAAAAAAAAqAAkAAAAAAAAAAAAqAAoAAAAAAAAAAAArAAoAAAAAAAAAAAAsAAoAAAAAAAAAAAAtAAoAAAAAAAAAAAAuAAoAAAAAAAAAAAAvAAoAAAAAAAAAAAAwAAoAAAAAAAAAAAAxAAoAAAAAAAAAAAAyAAoAAAAAAAAAAAAzAAoAAAAAAAAAAAA0AAoAAAAAAAAAAAA0AAkAAAAAAAAAAAA0AAgAAAAAAAAAAAA0AAcAAAAAAAAAAAA0AAYAAAAAAAAAAAA0AAUAAAAAAAAAAAA9AAQAAAABAAAAAAA+AAQAAAABAAAAAAA/AAQAAAABAAAAAABAAAQAAAABAAAAAABBAAQAAAABAAAAAABCAAQAAAABAAAAAABDAAQAAAABAAAAAABEAAQAAAABAAAAAABFAAQAAAABAAAAAABGAAQAAAABAAAAAABHAAQAAAABAAAAAABIAAUAAAABAAAAAABKAAUAAAABAAAAAABJAAUAAAABAAAAAABLAAUAAAABAAAAAABMAAUAAAABAAAAAABNAAQAAAABAAAAAABMAAQAAAABAAAAAABHAAUAAAABAAAAAABOAAQAAAABAAAAAABPAAQAAAABAAAAAABQAAQAAAABAAAAAABRAAQAAAABAAAAAABSAAQAAAABAAAAAABTAAQAAAABAAAAAABUAAQAAAABAAAAAABVAAQAAAABAAAAAABWAAQAAAABAAAAAABXAAQAAAABAAAAAABYAAQAAAABAAAAAABZAAQAAAABAAAAAABaAAQAAAABAAAAAABbAAQAAAABAAAAAABcAAQAAAABAAAAAABdAAQAAAABAAAAAABeAAQAAAABAAAAAABfAAQAAAABAAAAAABgAAQAAAABAAAAAABhAAQAAAABAAAAAABkAAUAAAABAAAAAABlAAUAAAABAAAAAABmAAUAAAABAAAAAABnAAUAAAABAAAAAABqAAQAAAABAAAAAABrAAQAAAABAAAAAABsAAQAAAABAAAAAABtAAQAAAABAAAAAABuAAQAAAABAAAAAABvAAQAAAABAAAAAABwAAQAAAABAAAAAABxAAQAAAABAAAAAAByAAQAAAABAAAAAABzAAQAAAABAAAAAAB0AAQAAAABAAAAAAB1AAQAAAABAAAAAAB2AAQAAAABAAAAAAB3AAQAAAABAAAAAAB4AAQAAAABAAAAAAB5AAQAAAABAAAAAAB6AAQAAAABAAAAAAB7AAQAAAABAAAAAAB8AAQAAAABAAAAAAB9AAQAAAABAAAAAAB+AAQAAAABAAAAAACBAA0AAAAAAAAAAACCAA0AAAAAAAAAAACDAA0AAAAAAAAAAACEAA0AAAAAAAAAAACFAA0AAAAAAAAAAACGAA0AAAAAAAAAAACHAA0AAAAAAAAAAACIAA0AAAAAAAAAAACJAA0AAAAAAAAAAACKAA0AAAAAAAAAAACLAA0AAAAAAAAAAACOAAUAAAABAAAAAACPAAUAAAABAAAAAACQAAUAAAABAAAAAACRAAUAAAABAAAAAACSAAUAAAABAAAAAACTAAUAAAABAAAAAACWAA4AAAAAAAAAAACXAA4AAAAAAAAAAACYAA4AAAAAAAAAAACZAA4AAAAAAAAAAACaAA4AAAAAAAAAAACbAA4AAAAAAAAAAACcAA4AAAAAAAAAAACdAA4AAAAAAAAAAACiAAYAAAABAAAAAACjAAYAAAABAAAAAACkAAYAAAABAAAAAAClAAYAAAABAAAAAABhAAUAAAABAAAAAABiAAUAAAABAAAAAABjAAUAAAABAAAAAABnAAQAAAABAAAAAABoAAQAAAABAAAAAABpAAQAAAABAAAAAAB+AAUAAAAAAAAAAAB+AAYAAAAAAAAAAAB+AAcAAAAAAAAAAAB+AAgAAAAAAAAAAAB+AAkAAAAAAAAAAAB+AAoAAAAAAAAAAAB+AAsAAAAAAAAAAAB+AAwAAAAAAAAAAAB+AA0AAAAAAAAAAAB/AA0AAAAAAAAAAACAAA0AAAAAAAAAAACLAAUAAAABAAAAAACLAAYAAAAAAAAAAACLAAcAAAAAAAAAAACLAAgAAAAAAAAAAACLAAkAAAAAAAAAAACLAAoAAAAAAAAAAACLAAsAAAAAAAAAAACLAAwAAAAAAAAAAACMAAUAAAABAAAAAACNAAUAAAABAAAAAACTAAYAAAAAAAAAAACTAAcAAAAAAAAAAACTAAgAAAAAAAAAAACTAAkAAAAAAAAAAACTAAoAAAAAAAAAAACTAAsAAAAAAAAAAACTAAwAAAAAAAAAAACTAA0AAAAAAAAAAACTAA4AAAAAAAAAAACUAA4AAAAAAAAAAACVAA4AAAAAAAAAAACeAA4AAAAAAAAAAACfAA4AAAAAAAAAAACgAA4AAAAAAAAAAAChAA4AAAAAAAAAAACiAA4AAAAAAAAAAACiAA0AAAAAAAAAAACiAAwAAAAAAAAAAACiAAsAAAAAAAAAAACiAAoAAAAAAAAAAACiAAkAAAAAAAAAAACiAAgAAAAAAAAAAACiAAcAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_kdubu")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1893345640]
+[node name="player" type="CharacterBody2D" parent="." unique_id=1893345640]
+unique_name_in_owner = true
 scale = Vector2(8, 8)
 script = ExtResource("2_0hol4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1970370826]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1970370826]
 shape = SubResource("CircleShape2D_0e48y")
 
-[node name="circle" type="Sprite2D" parent="Player" unique_id=337544947]
-scale = Vector2(0.055, 0.055)
-texture = ExtResource("1_wtcfe")
+[node name="circle" type="Sprite2D" parent="player" unique_id=337544947]
+texture = ExtResource("3_q6r6c")
 
-[node name="Camera" type="Camera2D" parent="Player" unique_id=691649268]
+[node name="Camera" type="Camera2D" parent="player" unique_id=691649268]
 position_smoothing_enabled = true
 
-[node name="pivot" type="Node2D" parent="Player" unique_id=1968029449]
+[node name="pivot" type="Node2D" parent="player" unique_id=1968029449]
 
-[node name="arrow" type="Sprite2D" parent="Player/pivot" unique_id=1540788157]
+[node name="arrow" type="Sprite2D" parent="player/pivot" unique_id=1540788157]
 position = Vector2(20, 0)
-scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_0hol4")
+
+[node name="tute2" type="RichTextLabel" parent="." unique_id=825378716]
+offset_left = 1400.0
+offset_top = 150.0
+offset_right = 1644.375
+offset_bottom = 207.875
+scale = Vector2(8, 8)
+theme_override_fonts/normal_font = ExtResource("2_q6r6c")
+theme_override_font_sizes/normal_font_size = 16
+text = "use N to cancel vertical motion"
+script = ExtResource("3_kdubu")
+rate = 500
+
+[node name="tute3" type="RichTextLabel" parent="." unique_id=500574554]
+offset_left = 3300.0
+offset_top = 150.0
+offset_right = 3544.375
+offset_bottom = 207.875
+scale = Vector2(8, 8)
+theme_override_fonts/normal_font = ExtResource("2_q6r6c")
+theme_override_font_sizes/normal_font_size = 16
+text = "use M to cancel horizontal motion"
+script = ExtResource("3_kdubu")
+rate = 500
+
+[node name="tute4" type="RichTextLabel" parent="." unique_id=1101096591]
+offset_left = 5602.0
+offset_top = 720.0
+offset_right = 5729.125
+offset_bottom = 777.875
+scale = Vector2(8, 8)
+theme_override_fonts/normal_font = ExtResource("2_q6r6c")
+theme_override_font_sizes/normal_font_size = 16
+text = "press R to restart"
+script = ExtResource("3_kdubu")
+
+[node name="tute5" type="RichTextLabel" parent="." unique_id=1488840018]
+offset_left = 7365.0
+offset_top = 295.0
+offset_right = 7566.25
+offset_bottom = 352.875
+scale = Vector2(8, 8)
+theme_override_fonts/normal_font = ExtResource("2_q6r6c")
+theme_override_font_sizes/normal_font_size = 16
+text = "You are always accelerating"
+script = ExtResource("3_kdubu")
+
+[node name="tute6" type="RichTextLabel" parent="." unique_id=362366098]
+offset_left = 12621.0
+offset_top = 184.0
+offset_right = 12682.0
+offset_bottom = 241.875
+scale = Vector2(8, 8)
+theme_override_fonts/normal_font = ExtResource("2_q6r6c")
+theme_override_font_sizes/normal_font_size = 16
+text = "Have fun!"
+script = ExtResource("3_kdubu")
+
+[node name="tute1" type="RichTextLabel" parent="." unique_id=1470568634]
+offset_left = -472.0
+offset_top = 150.0
+offset_right = -310.0
+offset_bottom = 191.125
+scale = Vector2(8, 8)
+theme_override_fonts/normal_font = ExtResource("2_q6r6c")
+theme_override_font_sizes/normal_font_size = 16
+text = "use WASD for movement"
+
+[node name="algebra-c1" type="AudioStreamPlayer" parent="." unique_id=1317890683]
+stream = ExtResource("7_4d7sh")
+autoplay = true
+
+[node name="algebra-s1" type="AudioStreamPlayer" parent="." unique_id=2023764216]
+stream = ExtResource("8_ir8iy")
+script = ExtResource("9_hqns4")
+
+[connection signal="finished" from="algebra-c1" to="algebra-s1" method="_on_algebrac_1_finished"]
