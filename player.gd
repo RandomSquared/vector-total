@@ -13,6 +13,9 @@ var velv = 0
 var targetzoom = 1
 var zoomchange = 0
 var multz = 1
+var respawn = Vector2(0, 0)
+@export var checkpointno = 0
+
 
 func _physics_process(delta: float) -> void:
 	#ensure momentum isnt built up
@@ -60,14 +63,22 @@ func _physics_process(delta: float) -> void:
 	var target_zoom_value = clamp(remap(totalvel, 0, 1000, 1.0, 0.5), 0.5, 1)
 	var target_zoom_vector = Vector2(target_zoom_value, target_zoom_value)
 	camera.zoom = camera.zoom.lerp(target_zoom_vector, 0.1)
+
+	
 	
 	#restart
 	if Input.is_action_just_pressed("restart"):
-		self.position = Vector2(0,0)
-	
-	
-	
+		self.position = respawn
 	
 	
 	velocity = Vector2(velh, velv)
 	move_and_slide()
+
+#Checkpoint
+func _on_checkpoint_1_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D or checkpointno == 1:
+		respawn = Vector2(22975.07, 640)
+
+#Death
+func _on_killed() -> void:
+	self.position = respawn
