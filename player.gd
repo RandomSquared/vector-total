@@ -15,6 +15,10 @@ var zoomchange = 0
 var multz = 1
 var respawn = Vector2(0, 0)
 @export var checkpointno = 0
+@export var is_zoom_override = false
+@export var zoom_override = Vector2(0.08, 0.08)
+@export var is_respawn_override = false
+@export var respawn_override: Vector2
 
 
 func _physics_process(delta: float) -> void:
@@ -62,17 +66,26 @@ func _physics_process(delta: float) -> void:
 	var totalvel = abs(velv) + abs(velh)
 	var target_zoom_value = clamp(remap(totalvel, 0, 1000, 1.0, 0.5), 0.5, 1)
 	var target_zoom_vector = Vector2(target_zoom_value, target_zoom_value)
-	camera.zoom = camera.zoom.lerp(target_zoom_vector, 0.1)
-
+	if is_zoom_override == false:
+		camera.zoom = camera.zoom.lerp(target_zoom_vector, 0.1)
+	else:
+		camera.zoom = camera.zoom.lerp(zoom_override, 0.1)
 	
 	
 	#restart
 	if Input.is_action_just_pressed("restart"):
 		self.position = respawn
 	
+	if is_respawn_override == true:
+		respawn = respawn_override
+	
 	
 	velocity = Vector2(velh, velv)
 	move_and_slide()
+	
+	if checkpointno == 2:
+		respawn = Vector2(0, -300)
+	
 
 #Checkpoint
 func _on_checkpoint_1_body_entered(body: Node2D) -> void:
@@ -82,3 +95,7 @@ func _on_checkpoint_1_body_entered(body: Node2D) -> void:
 #Death
 func _on_killed() -> void:
 	self.position = respawn
+
+
+func _on_fade_from_black_checkpoint_2() -> void:
+		respawn = Vector2(0, -1000)
