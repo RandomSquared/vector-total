@@ -83,9 +83,6 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector2(velh, velv)
 	move_and_slide()
 	
-	if checkpointno == 2:
-		respawn = Vector2(0, -300)
-	
 
 #Checkpoint
 func _on_checkpoint_1_body_entered(body: Node2D) -> void:
@@ -95,7 +92,9 @@ func _on_checkpoint_1_body_entered(body: Node2D) -> void:
 #Death
 func _on_killed() -> void:
 	self.position = respawn
+	
 
 
-func _on_fade_from_black_checkpoint_2() -> void:
-		respawn = Vector2(0, -1000)
+func _on_checkpoint_2_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D or checkpointno == 2:
+		respawn = Vector2(0, -896.0)

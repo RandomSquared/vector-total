@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dt8ue20fuuxnx"]
+
+[ext_resource type="AudioStream" uid="uid://2qtrat3lcoe7" path="res://music/algebra-c1.wav" id="1_khlsn"]
+[ext_resource type="AudioStream" uid="uid://dbbqtivxfpand" path="res://music/algebra-s1.wav" id="2_boywh"]
+[ext_resource type="Script" uid="uid://da7d1v4i3jcpm" path="res://algebra_s_1.gd" id="3_gqg2j"]
+[ext_resource type="AudioStream" uid="uid://c7chq5etq5vqn" path="res://music/algebra-s2.wav" id="4_eh16a"]
+[ext_resource type="Script" uid="uid://derxsqbhnq7eh" path="res://algebra_s_2.gd" id="5_3hkwp"]
+[ext_resource type="AudioStream" uid="uid://bvykp6ih6novm" path="res://music/algebra-c2.wav" id="6_boywh"]
+[ext_resource type="Script" uid="uid://bkvics02sgjg3" path="res://algebra_c_2.gd" id="7_gqg2j"]
+[ext_resource type="AudioStream" uid="uid://bpx3ywcki5hj0" path="res://music/algebra-s3.wav" id="8_3hkwp"]
+[ext_resource type="Script" uid="uid://dwshewiwfr2ge" path="res://algebra_s_3.gd" id="8_eh16a"]
+
+[node name="Node" type="Node" unique_id=1028262152]
+
+[node name="algebra-c1" type="AudioStreamPlayer" parent="." unique_id=1039214356]
+stream = ExtResource("1_khlsn")
+autoplay = true
+
+[node name="algebra-s1" type="AudioStreamPlayer" parent="." unique_id=2069764780]
+stream = ExtResource("2_boywh")
+volume_db = -3.0
+script = ExtResource("3_gqg2j")
+pushallsignals = true
+pushno = 2
+
+[node name="algebra-s2" type="AudioStreamPlayer" parent="." unique_id=1333582480]
+stream = ExtResource("4_eh16a")
+volume_db = -3.0
+script = ExtResource("5_3hkwp")
+
+[node name="algebra-c2" type="AudioStreamPlayer" parent="." unique_id=450566959]
+stream = ExtResource("6_boywh")
+script = ExtResource("7_gqg2j")
+
+[node name="algebra-s3" type="AudioStreamPlayer" parent="." unique_id=1730557080]
+stream = ExtResource("8_3hkwp")
+script = ExtResource("8_eh16a")
+
+[connection signal="finished" from="algebra-c1" to="algebra-s1" method="_on_algebrac_1_finished"]
+[connection signal="finished" from="algebra-s1" to="algebra-s2" method="_on_algebras_1_finished"]
+[connection signal="finished" from="algebra-s2" to="algebra-c2" method="_on_algebras_2_finished"]
+[connection signal="finished" from="algebra-c2" to="algebra-s3" method="_on_algebrac_2_finished"]

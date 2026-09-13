@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bc1f1qml2ydm4" path="res://background 2/4.png" id="7_j86o6"]
 [ext_resource type="Texture2D" uid="uid://b7tq2phy3omam" path="res://background 2/5.png" id="8_0afu7"]
 [ext_resource type="Texture2D" uid="uid://4pqfn5fttel2" path="res://background 2/6.png" id="9_imlh5"]
+[ext_resource type="Script" uid="uid://ba2soaq6gq0o3" path="res://checkpoint_2.gd" id="13_j86o6"]
+[ext_resource type="Texture2D" uid="uid://d2wfvnskbfvsa" path="res://checkpoint-u.png" id="14_0afu7"]
+[ext_resource type="Texture2D" uid="uid://bngvxchr26oig" path="res://particle.png" id="15_imlh5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j86o6"]
 texture = ExtResource("1_tl0yt")
@@ -67,6 +70,12 @@ texture = ExtResource("1_tl0yt")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_imlh5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg58s"]
+
+[sub_resource type="Curve" id="Curve_lsl8k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_pg58s"]
 radius = 8.0
 
@@ -88,7 +97,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Main Map" type="TileMapLayer" parent="." unique_id=1561321691]
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAADAAIAAAADAAAAAAADAAMAAAADAAAAAAADAAQAAAADAAAAAAADAAUAAAADAAAAAAADAAYAAAADAAAAAAADAAcAAAADAAAAAAADAAgAAAADAAAAAAADAAkAAAADAAAAAAADAAoAAAADAAAAAAADAPr/AAADAAAAAAADAPv/AAADAAAAAAADAPz/AAADAAAAAAADAP3/AAADAAAAAAADAP7/AAADAAAAAAADAP//AAADAAAAAAADAAAAAAADAAAAAAADAAEAAAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAADAAIAAAADAAAAAAADAAMAAAADAAAAAAADAAQAAAADAAAAAAADAAUAAAADAAAAAAADAAYAAAADAAAAAAADAAcAAAADAAAAAAADAAgAAAADAAAAAAADAAkAAAADAAAAAAADAAoAAAADAAAAAAADAPr/AAADAAAAAAADAPv/AAADAAAAAAADAPz/AAADAAAAAAADAP3/AAADAAAAAAADAP7/AAADAAAAAAADAP//AAADAAAAAAADAAAAAAADAAAAAAADAAEAAAADAAAAAAAEAPr/AAABAAAAAAAFAPr/AAABAAAAAAAGAPr/AAABAAAAAAAHAPr/AAABAAAAAAAIAPr/AAABAAAAAAAJAPr/AAABAAAAAAAKAPr/AAABAAAAAAALAPr/AAABAAAAAAAMAPr/AAABAAAAAAANAPr/AAABAAAAAAD8/woAAAACAAAAAAD8/wkAAAACAAAAAAD8/wgAAAACAAAAAAD8/wcAAAACAAAAAAD8/wYAAAACAAAAAAD8/wUAAAACAAAAAAD8/wQAAAACAAAAAAD8/wMAAAACAAAAAAD8/wIAAAACAAAAAAD8/wEAAAACAAAAAAD8/wAAAAACAAAAAAD8////AAACAAAAAAD8//7/AAACAAAAAAD8//3/AAACAAAAAAD8//z/AAACAAAAAAD8//v/AAACAAAAAAD8//r/AAACAAAAAAD8//n/AAACAAAAAAD8//j/AAACAAAAAAD8//f/AAACAAAAAAD8//b/AAACAAAAAAA=")
 tile_set = SubResource("TileSet_0afu7")
 
 [node name="moveablemap3" type="TileMapLayer" parent="Main Map" unique_id=1696174499]
@@ -96,7 +105,71 @@ tile_map_data = PackedByteArray("AAD9/woAAAABAAAAAAD+/woAAAABAAAAAAD//woAAAABAAA
 tile_set = SubResource("TileSet_pg58s")
 script = ExtResource("2_qdeum")
 moveby = Vector2(0, -256)
-speed = 1.0
+speed = 1.5
+
+[node name="Checkpoint2" type="Area2D" parent="Main Map/moveablemap3" unique_id=1907798122]
+position = Vector2(0, 144)
+scale = Vector2(0.125, 0.125)
+script = ExtResource("13_j86o6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main Map/moveablemap3/Checkpoint2" unique_id=2009344091]
+scale = Vector2(7, 13)
+shape = SubResource("RectangleShape2D_pg58s")
+metadata/_edit_lock_ = true
+
+[node name="checkpointsprite1" type="Sprite2D" parent="Main Map/moveablemap3/Checkpoint2" unique_id=961116406]
+scale = Vector2(8, 8)
+texture = ExtResource("14_0afu7")
+metadata/_edit_lock_ = true
+
+[node name="suck1" type="CPUParticles2D" parent="Main Map/moveablemap3/Checkpoint2" unique_id=1572919528]
+position = Vector2(0, -48)
+scale = Vector2(24, 24)
+emitting = false
+amount = 30
+texture = ExtResource("15_imlh5")
+lifetime = 0.7
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+radial_accel_min = -400.0
+radial_accel_max = -400.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_lsl8k")
+metadata/_edit_lock_ = true
+
+[node name="explode1" type="CPUParticles2D" parent="Main Map/moveablemap3/Checkpoint2" unique_id=320767774]
+position = Vector2(0, -48)
+scale = Vector2(24, 24)
+emitting = false
+amount = 90
+texture = ExtResource("15_imlh5")
+lifetime = 0.7
+one_shot = true
+speed_scale = 0.7
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_lsl8k")
+metadata/_edit_lock_ = true
+
+[node name="timer1" type="Timer" parent="Main Map/moveablemap3/Checkpoint2" unique_id=1163203223]
+wait_time = 2.0
+one_shot = true
+
+[node name="timer2" type="Timer" parent="Main Map/moveablemap3/Checkpoint2" unique_id=1503755508]
+wait_time = 0.6
+one_shot = true
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=1970077590]
 unique_name_in_owner = true
@@ -114,6 +187,7 @@ shape = SubResource("CircleShape2D_pg58s")
 texture = ExtResource("2_jh812")
 
 [node name="Camera" type="Camera2D" parent="player" unique_id=1097699446]
+process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
@@ -145,7 +219,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 3000, 500)
 script = ExtResource("5_6jvow")
 horizmult = 0.85
-vertmult = 0.85
+vertmult = 0.95
 metadata/_edit_lock_ = true
 
 [node name="bglayer3" type="Sprite2D" parent="player/bgparentnode" unique_id=105199147]
@@ -154,7 +228,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 3000, 500)
 script = ExtResource("5_6jvow")
 horizmult = 0.7
-vertmult = 0.7
+vertmult = 0.85
 metadata/_edit_lock_ = true
 
 [node name="bglayer4" type="Sprite2D" parent="player/bgparentnode" unique_id=83088877]
@@ -163,7 +237,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 3000, 500)
 script = ExtResource("5_6jvow")
 horizmult = 0.9
-vertmult = 0.9
+vertmult = 0.97
 metadata/_edit_lock_ = true
 
 [node name="bglayer5" type="Sprite2D" parent="player/bgparentnode" unique_id=1567307993]
@@ -172,7 +246,11 @@ region_enabled = true
 region_rect = Rect2(0, 0, 3000, 450)
 script = ExtResource("5_6jvow")
 horizmult = 0.6
-vertmult = 0.6
+vertmult = 0.8
 metadata/_edit_lock_ = true
 
 [connection signal="checkpoint2" from="fade from black" to="player" method="_on_fade_from_black_checkpoint_2"]
+[connection signal="body_entered" from="Main Map/moveablemap3/Checkpoint2" to="player" method="_on_checkpoint_2_body_entered"]
+[connection signal="body_entered" from="Main Map/moveablemap3/Checkpoint2" to="Main Map/moveablemap3/Checkpoint2" method="_on_body_entered"]
+[connection signal="timeout" from="Main Map/moveablemap3/Checkpoint2/timer1" to="Main Map/moveablemap3/Checkpoint2" method="_on_timer_1_timeout"]
+[connection signal="timeout" from="Main Map/moveablemap3/Checkpoint2/timer2" to="Main Map/moveablemap3/Checkpoint2" method="_on_timer_2_timeout"]

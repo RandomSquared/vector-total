@@ -17,11 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://wdwvlqw2kirr" path="res://background 1/cloud_lonely.png" id="12_2arrr"]
 [ext_resource type="FontFile" uid="uid://jw47yk0supur" path="res://rainyhearts.ttf" id="13_e50d2"]
 [ext_resource type="Script" uid="uid://bt3ogkxhfjrwq" path="res://fadetext.gd" id="14_qppam"]
-[ext_resource type="AudioStream" uid="uid://2qtrat3lcoe7" path="res://music/algebra-c1.wav" id="15_8ddti"]
-[ext_resource type="AudioStream" uid="uid://dbbqtivxfpand" path="res://music/algebra-s1.wav" id="16_54ro4"]
-[ext_resource type="Script" uid="uid://da7d1v4i3jcpm" path="res://algebra_s_1.gd" id="17_h8am8"]
-[ext_resource type="AudioStream" uid="uid://c7chq5etq5vqn" path="res://music/algebra-s2.wav" id="18_ybmnt"]
-[ext_resource type="Script" uid="uid://derxsqbhnq7eh" path="res://algebra_s_2.gd" id="19_obxfl"]
 [ext_resource type="Script" uid="uid://b7654h777vg0l" path="res://oscillatespikes.gd" id="20_ff2b6"]
 [ext_resource type="Script" uid="uid://3k53sjn2xuu6" path="res://spike.gd" id="21_ifgng"]
 [ext_resource type="Texture2D" uid="uid://dr722n7y2emi2" path="res://spike.png" id="22_be5ej"]
@@ -137,8 +132,6 @@ speed = 3.0
 unique_name_in_owner = true
 scale = Vector2(8, 8)
 script = ExtResource("2_q4lx7")
-checkpointno = 1
-is_respawn_override = true
 respawn_override = Vector2(39000, -100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1970370826]
@@ -148,6 +141,7 @@ shape = SubResource("CircleShape2D_0e48y")
 texture = ExtResource("3_bgvpy")
 
 [node name="Camera" type="Camera2D" parent="player" unique_id=691649268]
+process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
@@ -297,21 +291,6 @@ scale = Vector2(8, 8)
 theme_override_fonts/normal_font = ExtResource("13_e50d2")
 theme_override_font_sizes/normal_font_size = 16
 text = "use WASD for movement"
-
-[node name="algebra-c1" type="AudioStreamPlayer" parent="." unique_id=1317890683]
-stream = ExtResource("15_8ddti")
-autoplay = true
-
-[node name="algebra-s1" type="AudioStreamPlayer" parent="." unique_id=2023764216]
-stream = ExtResource("16_54ro4")
-volume_db = -3.0
-script = ExtResource("17_h8am8")
-
-[node name="algebra-s2" type="AudioStreamPlayer" parent="." unique_id=801612753]
-stream = ExtResource("18_ybmnt")
-volume_db = -3.0
-script = ExtResource("19_obxfl")
-duration = 3
 
 [node name="allspike" type="Node" parent="." unique_id=552044592]
 
@@ -943,10 +922,7 @@ position = Vector2(39928, 320)
 position = Vector2(116, 69.5)
 shape = SubResource("RectangleShape2D_wgct6")
 
-[connection signal="next_level" from="Main Map/moveablemap2" to="algebra-s2" method="_on_moveablemap_2_next_level"]
 [connection signal="next_level" from="Main Map/moveablemap2" to="fade to black" method="_on_moveablemap_2_next_level"]
-[connection signal="finished" from="algebra-c1" to="algebra-s1" method="_on_algebrac_1_finished"]
-[connection signal="finished" from="algebra-s1" to="algebra-s2" method="_on_algebras_1_finished"]
 [connection signal="body_entered" from="allspike/spikeset1/spike1" to="allspike/spikeset1/spike1" method="_on_body_entered"]
 [connection signal="killed" from="allspike/spikeset1/spike1" to="player" method="_on_killed"]
 [connection signal="body_entered" from="allspike/spikeset1/spike2" to="allspike/spikeset1/spike2" method="_on_body_entered"]
@@ -1018,8 +994,6 @@ shape = SubResource("RectangleShape2D_wgct6")
 [connection signal="body_entered" from="allspike/spikeset3/spike5" to="allspike/spikeset3/spike5" method="_on_body_entered"]
 [connection signal="killed" from="allspike/spikeset3/spike5" to="player" method="_on_killed"]
 [connection signal="body_entered" from="Checkpoint1" to="player" method="_on_checkpoint_1_body_entered"]
-[connection signal="body_entered" from="Checkpoint1" to="algebra-s1" method="_on_checkpoint_1_body_entered"]
-[connection signal="body_entered" from="Checkpoint1" to="algebra-s2" method="_on_checkpoint_1_body_entered"]
 [connection signal="body_entered" from="Checkpoint1" to="Checkpoint1" method="_on_body_entered"]
 [connection signal="timeout" from="Checkpoint1/timer1" to="Checkpoint1" method="_on_timer_1_timeout"]
 [connection signal="timeout" from="Checkpoint1/timer2" to="Checkpoint1" method="_on_timer_2_timeout"]
