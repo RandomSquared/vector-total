@@ -14,6 +14,6 @@ func _physics_process(delta: float) -> void:
 		position = position.lerp(currentpos+moveby, speed * delta)
 
 
-func _on_nextlevel_body_entered(body: Node2D) -> void:
+func _on_booster_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		trigger = true

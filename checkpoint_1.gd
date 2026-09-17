@@ -6,6 +6,7 @@ extends Area2D
 @onready var timer2 = $timer2
 var new_texture = preload("res://checkpoint-a.png")
 var hasbeen = false
+@export var ckptnum = 1
 
 
 
@@ -14,7 +15,7 @@ func _on_body_entered(body: Node2D) -> void:
 		timer.start()
 		particle1.emitting = true
 		hasbeen = true
-		Global.checkpoint.emit(1)
+		Global.checkpoint.emit(ckptnum)
 
 
 

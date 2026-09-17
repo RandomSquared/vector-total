@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Vector Total"
-run/main_scene="uid://bg7h0cm5bhtlj"
+run/main_scene="uid://dq3oeojxam8id"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -13,7 +13,6 @@ func _on_body_entered(body: Node2D) -> void:
 		timer1.start()
 		particle1.emitting = true
 		hasbeen = true
-		Global.checkpoint.emit(2)
 	
 
 func _on_timer_1_timeout() -> void:

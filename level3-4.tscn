@@ -9,14 +9,25 @@
 [ext_resource type="Texture2D" uid="uid://c3sciduwvtflw" path="res://background 2/2.png" id="4_tl0yt"]
 [ext_resource type="Script" uid="uid://bktr1ggg0c1i4" path="res://layerscript.gd" id="5_6jvow"]
 [ext_resource type="Texture2D" uid="uid://cfqluno3upqm5" path="res://background 2/3.png" id="6_cvwqb"]
+[ext_resource type="Script" uid="uid://cdpgw3o81ieqv" path="res://tilemovement4.gd" id="7_0afu7"]
 [ext_resource type="Texture2D" uid="uid://bc1f1qml2ydm4" path="res://background 2/4.png" id="7_j86o6"]
 [ext_resource type="Texture2D" uid="uid://b7tq2phy3omam" path="res://background 2/5.png" id="8_0afu7"]
+[ext_resource type="Script" uid="uid://d3oaxjc23qr2t" path="res://tilemovement.gd" id="8_lhkh6"]
+[ext_resource type="Script" uid="uid://nkp12a4447fg" path="res://tilemovement2.gd" id="9_1ak8w"]
 [ext_resource type="Texture2D" uid="uid://4pqfn5fttel2" path="res://background 2/6.png" id="9_imlh5"]
-[ext_resource type="Script" uid="uid://ba2soaq6gq0o3" path="res://checkpoint_2.gd" id="13_j86o6"]
+[ext_resource type="Script" uid="uid://cg5qskqwqfgrn" path="res://scenetransition3.gd" id="10_1ak8w"]
 [ext_resource type="Texture2D" uid="uid://d2wfvnskbfvsa" path="res://checkpoint-u.png" id="14_0afu7"]
 [ext_resource type="Texture2D" uid="uid://bngvxchr26oig" path="res://particle.png" id="15_imlh5"]
+[ext_resource type="Texture2D" uid="uid://vkiagfpp127c" path="res://berity.png" id="17_lsl8k"]
+[ext_resource type="FontFile" uid="uid://jw47yk0supur" path="res://rainyhearts.ttf" id="17_pg58s"]
+[ext_resource type="Script" uid="uid://bt3ogkxhfjrwq" path="res://fadetext.gd" id="18_lsl8k"]
+[ext_resource type="Script" uid="uid://3k53sjn2xuu6" path="res://spike.gd" id="20_j37ii"]
+[ext_resource type="Texture2D" uid="uid://dr722n7y2emi2" path="res://spike.png" id="21_es4dy"]
+[ext_resource type="Script" uid="uid://ehcim8ss8kn1" path="res://checkpoint_alt.gd" id="22_es4dy"]
+[ext_resource type="Script" uid="uid://ccvf5oa64640h" path="res://circularisespike.gd" id="22_kgnyo"]
+[ext_resource type="Script" uid="uid://dmlj7uskgifgy" path="res://checkpoint_1.gd" id="24_g3qe3"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j86o6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ak8w"]
 texture = ExtResource("1_tl0yt")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -45,9 +56,9 @@ texture = ExtResource("1_tl0yt")
 
 [sub_resource type="TileSet" id="TileSet_0afu7"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_j86o6")
+sources/0 = SubResource("TileSetAtlasSource_1ak8w")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_imlh5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5lh0a"]
 texture = ExtResource("1_tl0yt")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -68,7 +79,7 @@ texture = ExtResource("1_tl0yt")
 
 [sub_resource type="TileSet" id="TileSet_pg58s"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_imlh5")
+sources/0 = SubResource("TileSetAtlasSource_5lh0a")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg58s"]
 
@@ -76,28 +87,81 @@ sources/0 = SubResource("TileSetAtlasSource_imlh5")
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8hqw"]
+texture = ExtResource("1_tl0yt")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lsl8k"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_o8hqw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmeje"]
+size = Vector2(176, 42)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pb1r"]
+texture = ExtResource("1_tl0yt")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yl28u"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_0pb1r")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ak8w"]
+size = Vector2(81, 86.25)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_pg58s"]
 radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgnyo"]
 
 [node name="Node2D" type="Node2D" unique_id=1108965790]
 
 [node name="fade from black" type="CanvasGroup" parent="." unique_id=1998122079]
-visible = false
 z_index = 1
 position = Vector2(-1, 0)
 scale = Vector2(8, 8)
 script = ExtResource("1_6jvow")
 
 [node name="ColorRect" type="ColorRect" parent="fade from black" unique_id=768959027]
-offset_left = -264.875
-offset_top = -241.0
-offset_right = 286.125
-offset_bottom = 253.0
+offset_left = -265.875
+offset_top = -233.0
+offset_right = 285.125
+offset_bottom = 261.0
 color = Color(0, 0, 0, 1)
 
 [node name="Main Map" type="TileMapLayer" parent="." unique_id=1561321691]
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAADAAIAAAADAAAAAAADAAMAAAADAAAAAAADAAQAAAADAAAAAAADAAUAAAADAAAAAAADAAYAAAADAAAAAAADAAcAAAADAAAAAAADAAgAAAADAAAAAAADAAkAAAADAAAAAAADAAoAAAADAAAAAAADAPr/AAADAAAAAAADAPv/AAADAAAAAAADAPz/AAADAAAAAAADAP3/AAADAAAAAAADAP7/AAADAAAAAAADAP//AAADAAAAAAADAAAAAAADAAAAAAADAAEAAAADAAAAAAAEAPr/AAABAAAAAAAFAPr/AAABAAAAAAAGAPr/AAABAAAAAAAHAPr/AAABAAAAAAAIAPr/AAABAAAAAAAJAPr/AAABAAAAAAAKAPr/AAABAAAAAAALAPr/AAABAAAAAAAMAPr/AAABAAAAAAANAPr/AAABAAAAAAD8/woAAAACAAAAAAD8/wkAAAACAAAAAAD8/wgAAAACAAAAAAD8/wcAAAACAAAAAAD8/wYAAAACAAAAAAD8/wUAAAACAAAAAAD8/wQAAAACAAAAAAD8/wMAAAACAAAAAAD8/wIAAAACAAAAAAD8/wEAAAACAAAAAAD8/wAAAAACAAAAAAD8////AAACAAAAAAD8//7/AAACAAAAAAD8//3/AAACAAAAAAD8//z/AAACAAAAAAD8//v/AAACAAAAAAD8//r/AAACAAAAAAD8//n/AAACAAAAAAD8//j/AAACAAAAAAD8//f/AAACAAAAAAD8//b/AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAADAAIAAAADAAAAAAADAAMAAAADAAAAAAADAAQAAAADAAAAAAADAAUAAAADAAAAAAADAAYAAAADAAAAAAADAAcAAAADAAAAAAADAAgAAAADAAAAAAADAAkAAAADAAAAAAADAAoAAAADAAAAAAADAPr/AAADAAAAAAADAPv/AAADAAAAAAADAPz/AAADAAAAAAADAP3/AAADAAAAAAADAP7/AAADAAAAAAADAP//AAADAAAAAAADAAAAAAADAAAAAAADAAEAAAADAAAAAAAEAPr/AAABAAAAAAAFAPr/AAABAAAAAAAGAPr/AAABAAAAAAAHAPr/AAABAAAAAAAIAPr/AAABAAAAAAAJAPr/AAABAAAAAAAKAPr/AAABAAAAAAALAPr/AAABAAAAAAAMAPr/AAABAAAAAAANAPr/AAABAAAAAAD8/woAAAACAAAAAAD8/wkAAAACAAAAAAD8/wgAAAACAAAAAAD8/wcAAAACAAAAAAD8/wYAAAACAAAAAAD8/wUAAAACAAAAAAD8/wQAAAACAAAAAAD8/wMAAAACAAAAAAD8/wIAAAACAAAAAAD8/wEAAAACAAAAAAD8/wAAAAACAAAAAAD8////AAACAAAAAAD8//7/AAACAAAAAAD8//3/AAACAAAAAAD8//z/AAACAAAAAAD8//v/AAACAAAAAAD8//r/AAACAAAAAAD8//n/AAACAAAAAAD8//j/AAACAAAAAAD8//f/AAACAAAAAAD8//b/AAACAAAAAAAOAPr/AAABAAAAAAAPAPr/AAABAAAAAAAQAPr/AAABAAAAAAARAPr/AAABAAAAAAASAPr/AAABAAAAAAATAPr/AAABAAAAAAAUAPr/AAABAAAAAAAVAPr/AAABAAAAAAAWAPr/AAABAAAAAAAXAPr/AAABAAAAAAAYAPr/AAABAAAAAAAZAPr/AAABAAAAAAAaAPr/AAABAAAAAAAbAPr/AAABAAAAAAAcAPr/AAABAAAAAAAdAPr/AAABAAAAAAAeAPr/AAABAAAAAAAfAPr/AAABAAAAAAAgAPr/AAABAAAAAAAhAPr/AAABAAAAAAAiAPr/AAABAAAAAAAjAPr/AAABAAAAAAAkAPr/AAABAAAAAAAlAPr/AAABAAAAAAAmAPr/AAABAAAAAAAnAPr/AAABAAAAAAAoAPr/AAABAAAAAAApAPr/AAABAAAAAAAqAPr/AAABAAAAAAArAPr/AAABAAAAAAAsAPr/AAABAAAAAAAtAPr/AAABAAAAAAAuAPr/AAABAAAAAAAvAPr/AAABAAAAAAAwAPr/AAABAAAAAAAxAPr/AAABAAAAAAAyAPr/AAABAAAAAAAzAPr/AAABAAAAAAA0APr/AAABAAAAAAA1APr/AAABAAAAAAA2APr/AAABAAAAAAA3APr/AAABAAAAAAA4APr/AAABAAAAAAA4APv/AAAAAAAAAAA4APz/AAAAAAAAAAA4AP3/AAAAAAAAAAA4AP7/AAAAAAAAAAA4AP//AAAAAAAAAAA4AAAAAAAAAAAAAAA4AAEAAAAAAAAAAAA4AAIAAAAAAAAAAAA4AAMAAAAAAAAAAABDAO3/AAABAAAAAABDAO7/AAADAAAAAABDAO//AAADAAAAAABDAPD/AAADAAAAAABDAPH/AAADAAAAAABDAPL/AAADAAAAAABDAPP/AAADAAAAAABDAPT/AAADAAAAAABDAPX/AAADAAAAAABDAPb/AAADAAAAAABDAPf/AAADAAAAAABDAPj/AAADAAAAAABDAPn/AAADAAAAAABDAPr/AAADAAAAAABDAPv/AAADAAAAAABDAPz/AAADAAAAAABDAP3/AAADAAAAAABDAP7/AAADAAAAAABDAP//AAADAAAAAABDAAAAAAADAAAAAABDAAEAAAADAAAAAABDAAIAAAADAAAAAABDAAMAAAADAAAAAABDAAQAAAADAAAAAABDAAUAAAADAAAAAABDAAYAAAADAAAAAABDAAcAAAADAAAAAABDAAgAAAADAAAAAABDAAkAAAADAAAAAABDAAoAAAADAAAAAABDAAsAAAADAAAAAAA4AAQAAAAAAAAAAAA4AAYAAAAAAAAAAAA4AAcAAAAAAAAAAAA4AAgAAAAAAAAAAAA5AAgAAAAAAAAAAAA6AAgAAAAAAAAAAAA7AAgAAAAAAAAAAAA8AAgAAAAAAAAAAAA9AAgAAAAAAAAAAAA+AAgAAAAAAAAAAAA/AAgAAAAAAAAAAABAAAgAAAAAAAAAAABBAAgAAAAAAAAAAABCAAgAAAAAAAAAAAA4AAUAAAAAAAAAAAA4AOj/AAACAAAAAAA4AOn/AAACAAAAAAA4AOr/AAACAAAAAAA4AOv/AAACAAAAAAA4AOz/AAACAAAAAAA4AO3/AAACAAAAAAA4AO7/AAACAAAAAAA4AO//AAACAAAAAABEAO3/AAABAAAAAABFAO3/AAABAAAAAABGAO3/AAABAAAAAABHAO3/AAABAAAAAABIAO3/AAABAAAAAABJAO3/AAABAAAAAABKAO3/AAABAAAAAABLAO3/AAABAAAAAABMAO3/AAABAAAAAABNAO3/AAABAAAAAABOAO3/AAABAAAAAABQAPD/AAABAAAAAABRAPD/AAABAAAAAABSAPD/AAABAAAAAABRAPX/AAABAAAAAABSAPX/AAABAAAAAABTAPX/AAABAAAAAABUAPX/AAABAAAAAABVAPX/AAABAAAAAABWAPX/AAABAAAAAABXAPX/AAABAAAAAABYAPX/AAABAAAAAABTAPD/AAABAAAAAABZAPT/AAAAAAMAAABaAPT/AAABAAMAAABbAPP/AAAAAAMAAABcAPP/AAABAAMAAABdAPL/AAAAAAMAAABeAPL/AAABAAMAAABfAPH/AAAAAAMAAABgAPH/AAABAAMAAABZAPX/AAABAAAAAABaAPX/AAABAAAAAABbAPT/AAABAAAAAABcAPT/AAABAAAAAABdAPP/AAABAAAAAABeAPP/AAABAAAAAABfAPL/AAABAAAAAABgAPL/AAABAAAAAABhAPH/AAABAAAAAABiAPH/AAABAAAAAABjAPH/AAABAAAAAABkAPH/AAABAAAAAABlAPH/AAABAAAAAABmAPH/AAABAAAAAABnAPH/AAABAAAAAABoAPH/AAABAAAAAABpAPH/AAABAAAAAABqAPH/AAABAAAAAABrAPH/AAABAAAAAABsAPH/AAABAAAAAABtAPH/AAABAAAAAABuAPH/AAABAAAAAABvAPH/AAABAAAAAABwAPH/AAABAAAAAABxAPH/AAABAAAAAAByAPH/AAABAAAAAABzAPH/AAABAAAAAAB0APH/AAABAAAAAAB1APH/AAABAAAAAACVAPf/AAAAAAAAAACWAPf/AAAAAAAAAACXAPf/AAAAAAAAAACYAPf/AAAAAAAAAACZAPf/AAAAAAAAAACaAPf/AAAAAAAAAACbAPf/AAAAAAAAAACcAPf/AAAAAAAAAACdAPf/AAAAAAAAAACeAPf/AAAAAAAAAACfAPf/AAAAAAAAAACgAPf/AAAAAAAAAAChAPf/AAAAAAAAAACiAPf/AAAAAAAAAACjAPf/AAAAAAAAAACkAPf/AAAAAAAAAAClAPf/AAAAAAAAAACmAPf/AAAAAAAAAACnAPf/AAAAAAAAAACnAPL/AAAAAAAAAACnAPP/AAAAAAAAAACnAPT/AAAAAAAAAACnAPX/AAAAAAAAAACnAPb/AAAAAAAAAACnAPH/AAABAAAAAACoAPH/AAABAAAAAACpAPH/AAABAAAAAACqAPH/AAABAAAAAACrAPH/AAABAAAAAACsAPH/AAABAAAAAACtAPH/AAABAAAAAACuAPH/AAABAAAAAACvAPH/AAABAAAAAACwAPH/AAABAAAAAAB2APH/AAABAAAAAAB3APH/AAABAAAAAAB4APH/AAABAAAAAAB5APH/AAABAAAAAAB6APH/AAABAAAAAAB7APH/AAABAAAAAAB8APH/AAABAAAAAAB9APH/AAABAAAAAAB+APH/AAABAAAAAAB/APH/AAABAAAAAACAAPH/AAABAAAAAACBAPH/AAABAAAAAACCAPH/AAABAAAAAACCAPL/AAAAAAAAAACCAPP/AAAAAAAAAACCAPT/AAAAAAAAAACCAPX/AAAAAAAAAACCAPb/AAAAAAAAAACCAPf/AAAAAAAAAACDAPf/AAAAAAAAAACEAPf/AAAAAAAAAACFAPf/AAAAAAAAAACGAPf/AAAAAAAAAACHAPf/AAAAAAAAAACIAPf/AAAAAAAAAACJAPf/AAAAAAAAAACKAPf/AAAAAAAAAACLAPf/AAAAAAAAAACMAPf/AAAAAAAAAACNAPf/AAAAAAAAAACOAPf/AAAAAAAAAACPAPf/AAAAAAAAAACQAPf/AAAAAAAAAACRAPf/AAAAAAAAAACSAPf/AAAAAAAAAACTAPf/AAAAAAAAAACUAPf/AAAAAAAAAACxAPH/AAABAAAAAACyAPH/AAABAAAAAACzAPH/AAABAAAAAAC0APH/AAABAAAAAAC1APH/AAABAAAAAAC/AAEAAAABAAAAAADAAAEAAAABAAAAAADBAAEAAAABAAAAAADCAAEAAAABAAAAAADDAAEAAAABAAAAAADEAAEAAAABAAAAAADFAAEAAAABAAAAAAC+AAEAAAABAAAAAADFAAAAAAAAAAMAAADGAAAAAAABAAMAAADGAAEAAAABAAAAAADHAAAAAAABAAAAAADIAAAAAAABAAAAAADJAP//AAABAAAAAADKAP//AAABAAAAAADLAP7/AAABAAAAAADMAP7/AAABAAAAAADHAP//AAAAAAMAAADIAP//AAABAAMAAADJAP7/AAAAAAMAAADKAP7/AAABAAMAAADLAP3/AAAAAAMAAADMAP3/AAABAAMAAADNAP7/AAABAAAAAADOAP7/AAABAAAAAADPAP7/AAABAAAAAADQAP7/AAABAAAAAADSAP7/AAABAAAAAADRAP7/AAABAAAAAADTAP7/AAABAAAAAADUAP7/AAABAAAAAADWAP7/AAABAAAAAADVAP7/AAABAAAAAADQAPz/AAAAAAMAAADRAPz/AAABAAMAAADVAPv/AAAAAAMAAADWAPv/AAABAAMAAADQAP3/AAABAAAAAADRAP3/AAABAAAAAADVAPz/AAABAAAAAADWAPz/AAABAAAAAADWAP3/AAABAAAAAADVAP3/AAABAAAAAADXAP7/AAABAAAAAADYAP7/AAABAAAAAADZAP7/AAABAAAAAADaAP7/AAABAAAAAADbAP7/AAABAAAAAADcAP7/AAABAAAAAADdAP7/AAABAAAAAADeAP7/AAABAAAAAADfAP7/AAABAAAAAADgAP7/AAABAAAAAADhAP7/AAABAAAAAADiAP7/AAABAAAAAADjAP7/AAABAAAAAADkAP7/AAABAAAAAADlAP7/AAABAAAAAADmAP7/AAABAAAAAADnAP7/AAABAAAAAADoAP7/AAABAAAAAADpAP7/AAABAAAAAADqAP7/AAABAAAAAADrAP7/AAABAAAAAADsAP7/AAABAAAAAADtAP7/AAABAAAAAADuAP7/AAABAAAAAADvAP7/AAABAAAAAADwAP7/AAABAAAAAADxAP7/AAABAAAAAADyAP7/AAABAAAAAADzAP7/AAABAAAAAAD0AP7/AAABAAAAAAD1AP7/AAABAAAAAAD2AP7/AAABAAAAAAD3AP7/AAABAAAAAAD4AP7/AAABAAAAAAD5AP7/AAABAAAAAAD6AP7/AAABAAAAAAD7AP7/AAABAAAAAAACAfL/AAADAAAAAAACAfP/AAADAAAAAAACAfT/AAADAAAAAAACAfX/AAADAAAAAAACAfb/AAADAAAAAAACAff/AAADAAAAAAACAfj/AAADAAAAAAACAfn/AAADAAAAAAACAfr/AAADAAAAAAACAfv/AAADAAAAAAACAfz/AAADAAAAAAACAf3/AAADAAAAAAACAf7/AAADAAAAAAACAej/AAADAAAAAAACAen/AAADAAAAAAACAer/AAADAAAAAAACAev/AAADAAAAAAACAez/AAADAAAAAAACAe3/AAADAAAAAAACAe7/AAADAAAAAAACAe//AAADAAAAAAACAfD/AAADAAAAAAACAfH/AAADAAAAAAA=")
 tile_set = SubResource("TileSet_0afu7")
 
 [node name="moveablemap3" type="TileMapLayer" parent="Main Map" unique_id=1696174499]
@@ -110,7 +174,8 @@ speed = 1.5
 [node name="Checkpoint2" type="Area2D" parent="Main Map/moveablemap3" unique_id=1907798122]
 position = Vector2(0, 144)
 scale = Vector2(0.125, 0.125)
-script = ExtResource("13_j86o6")
+script = ExtResource("24_g3qe3")
+ckptnum = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Main Map/moveablemap3/Checkpoint2" unique_id=2009344091]
 scale = Vector2(7, 13)
@@ -171,14 +236,67 @@ one_shot = true
 wait_time = 0.6
 one_shot = true
 
+[node name="moveablemap1" type="TileMapLayer" parent="Main Map" unique_id=1876418658]
+position = Vector2(-0.125, 0)
+tile_map_data = PackedByteArray("AAA5AAMAAAAAAAAAAAA6AAMAAAAAAAAAAAA7AAMAAAAAAAAAAAA8AAMAAAAAAAAAAAA9AAMAAAAAAAAAAAA+AAMAAAAAAAAAAAA/AAMAAAAAAAAAAABAAAMAAAAAAAAAAABBAAMAAAAAAAAAAABCAAMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_lsl8k")
+script = ExtResource("7_0afu7")
+moveby = Vector2(0, -352)
+speed = 1.0
+time = 10
+
+[node name="booster" type="Area2D" parent="Main Map/moveablemap1" unique_id=1382011724]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main Map/moveablemap1/booster" unique_id=484876769]
+position = Vector2(992.125, 30)
+shape = SubResource("RectangleShape2D_dmeje")
+
+[node name="moveablemap2" type="TileMapLayer" parent="Main Map" unique_id=353643611]
+position = Vector2(-0.125, 0)
+tile_map_data = PackedByteArray("AAD7APL/AAACAAAAAAD7APP/AAACAAAAAAD7APT/AAACAAAAAAD7APX/AAACAAAAAAD7APb/AAACAAAAAAD7APf/AAACAAAAAAD7APj/AAACAAAAAAD7APn/AAACAAAAAAD7APr/AAACAAAAAAD7APv/AAACAAAAAAD7AOz/AAACAAAAAAD7AO3/AAACAAAAAAD7AO7/AAACAAAAAAD7AO//AAACAAAAAAD7APD/AAACAAAAAAD7APH/AAACAAAAAAD7AOb/AAACAAAAAAD7AOf/AAACAAAAAAD7AOj/AAACAAAAAAD7AOn/AAACAAAAAAD7AOr/AAACAAAAAAD7AOv/AAACAAAAAAA=")
+tile_set = SubResource("TileSet_yl28u")
+script = ExtResource("8_lhkh6")
+moveby = Vector2(0, 32)
+speed = 3.0
+
+[node name="moveablemap4" type="TileMapLayer" parent="Main Map" unique_id=1592542475]
+tile_map_data = PackedByteArray("AAD8AP7/AAABAAAAAAD9AP7/AAABAAAAAAD+AP7/AAABAAAAAAD/AP7/AAABAAAAAAAAAf7/AAABAAAAAAABAf7/AAABAAAAAAA=")
+tile_set = SubResource("TileSet_yl28u")
+script = ExtResource("9_1ak8w")
+moveby = Vector2(0, -128)
+speed = 2.5
+
+[node name="fade to black" type="CanvasGroup" parent="Main Map" unique_id=797835132]
+z_index = 1
+position = Vector2(10000, 0)
+scale = Vector2(8, 8)
+script = ExtResource("10_1ak8w")
+duration = 5
+
+[node name="ColorRect" type="ColorRect" parent="Main Map/fade to black" unique_id=823996083]
+offset_left = -785.875
+offset_top = -65.875
+offset_right = -695.875
+offset_bottom = 27.875
+color = Color(0, 0, 0, 1)
+
+[node name="nextlevel" type="Area2D" parent="Main Map" unique_id=1321240657]
+position = Vector2(5000, 320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main Map/nextlevel" unique_id=600427826]
+position = Vector2(-907.5, -392.875)
+shape = SubResource("RectangleShape2D_1ak8w")
+
 [node name="player" type="CharacterBody2D" parent="." unique_id=1970077590]
 unique_name_in_owner = true
 position = Vector2(0, 1000)
 scale = Vector2(8, 8)
 script = ExtResource("1_urk6d")
 drag = 0.004
-checkpointno = 1
-respawn_override = Vector2(39000, -100)
+checkpointno = 4
+zoom_override = Vector2(0.1, 0.1)
+is_respawn_override = true
+respawn_override = Vector2(30000, -1100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1697886500]
 shape = SubResource("CircleShape2D_pg58s")
@@ -249,8 +367,1755 @@ horizmult = 0.6
 vertmult = 0.8
 metadata/_edit_lock_ = true
 
+[node name="man" type="Sprite2D" parent="." unique_id=1973332546]
+position = Vector2(8512, 960)
+scale = Vector2(8, 8)
+texture = ExtResource("17_lsl8k")
+
+[node name="tute6" type="RichTextLabel" parent="." unique_id=1448131166]
+offset_left = 7344.0
+offset_top = 560.0
+offset_right = 7474.0
+offset_bottom = 617.875
+scale = Vector2(8, 8)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("17_pg58s")
+theme_override_font_sizes/normal_font_size = 16
+text = "Did you know the air is thinner higher on the tower"
+
+[node name="tute8" type="RichTextLabel" parent="." unique_id=18202376]
+offset_left = 5728.0
+offset_top = -1112.0
+offset_right = 5847.0
+offset_bottom = -1054.125
+scale = Vector2(12, 12)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("17_pg58s")
+theme_override_font_sizes/normal_font_size = 16
+text = "Don't restart"
+script = ExtResource("18_lsl8k")
+rate = 200
+
+[node name="tute7" type="RichTextLabel" parent="." unique_id=1879431049]
+offset_left = 8464.0
+offset_top = 887.99976
+offset_right = 8583.0
+offset_bottom = 945.87476
+rotation = 2.083923
+scale = Vector2(16, 16)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("17_pg58s")
+theme_override_font_sizes/normal_font_size = 16
+text = "^"
+
+[node name="spikes" type="Node" parent="." unique_id=1381602862]
+
+[node name="spikeset1" type="Node2D" parent="spikes" unique_id=1447517668]
+
+[node name="spike1" type="Area2D" parent="spikes/spikeset1" unique_id=1638804494]
+z_index = 1
+position = Vector2(10176, -2368)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset1/spike1" unique_id=1063772182]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset1/spike1" unique_id=452463428]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike2" type="Area2D" parent="spikes/spikeset1" unique_id=300915317]
+z_index = 1
+position = Vector2(10304, -2368)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset1/spike2" unique_id=885089833]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset1/spike2" unique_id=729295907]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike3" type="Area2D" parent="spikes/spikeset1" unique_id=989470368]
+z_index = 1
+position = Vector2(10560, -2504)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset1/spike3" unique_id=951496763]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset1/spike3" unique_id=1185214833]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike4" type="Area2D" parent="spikes/spikeset1" unique_id=871314684]
+z_index = 1
+position = Vector2(10560, -2624)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset1/spike4" unique_id=1488365424]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset1/spike4" unique_id=900862011]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike5" type="Area2D" parent="spikes/spikeset1" unique_id=1156850413]
+z_index = 1
+position = Vector2(10560, -2752)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset1/spike5" unique_id=340682497]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset1/spike5" unique_id=1306300082]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike6" type="Area2D" parent="spikes/spikeset1" unique_id=1044191796]
+z_index = 1
+position = Vector2(10688, -2368)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset1/spike6" unique_id=953884981]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset1/spike6" unique_id=581920079]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike7" type="Area2D" parent="spikes/spikeset1" unique_id=100888280]
+z_index = 1
+position = Vector2(10688, -2240)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset1/spike7" unique_id=755405614]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset1/spike7" unique_id=947859750]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike8" type="Area2D" parent="spikes/spikeset1" unique_id=1866250255]
+z_index = 1
+position = Vector2(10688, -2112)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset1/spike8" unique_id=857609783]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset1/spike8" unique_id=701080269]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spikeset2" type="Node2D" parent="spikes" unique_id=1165436]
+
+[node name="spike1" type="Area2D" parent="spikes/spikeset2" unique_id=1027377915]
+z_index = 1
+position = Vector2(10176, -1616)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset2/spike1" unique_id=970933149]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset2/spike1" unique_id=805157488]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike2" type="Area2D" parent="spikes/spikeset2" unique_id=1579889479]
+z_index = 1
+position = Vector2(10304, -1616)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset2/spike2" unique_id=379156630]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset2/spike2" unique_id=482391289]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike3" type="Area2D" parent="spikes/spikeset2" unique_id=197957891]
+z_index = 1
+position = Vector2(9920, -1800)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset2/spike3" unique_id=1651345819]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset2/spike3" unique_id=418009709]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike4" type="Area2D" parent="spikes/spikeset2" unique_id=1120312096]
+z_index = 1
+position = Vector2(9920, -1920)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset2/spike4" unique_id=272466377]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset2/spike4" unique_id=887801513]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike5" type="Area2D" parent="spikes/spikeset2" unique_id=454450048]
+z_index = 1
+position = Vector2(9920, -2048)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset2/spike5" unique_id=1852254030]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset2/spike5" unique_id=1815423171]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike6" type="Area2D" parent="spikes/spikeset2" unique_id=864127594]
+z_index = 1
+position = Vector2(10048, -1616)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset2/spike6" unique_id=467219967]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset2/spike6" unique_id=1898802882]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike7" type="Area2D" parent="spikes/spikeset2" unique_id=308599134]
+z_index = 1
+position = Vector2(10432, -1616)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset2/spike7" unique_id=1148723714]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset2/spike7" unique_id=2007252303]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike8" type="Area2D" parent="spikes/spikeset2" unique_id=608390730]
+z_index = 1
+position = Vector2(10432, -1472)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset2/spike8" unique_id=1916814105]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset2/spike8" unique_id=1965219456]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spikeset9" type="Node2D" parent="spikes" unique_id=452771327]
+position = Vector2(18280, 1048)
+
+[node name="spike3" type="Area2D" parent="spikes/spikeset9" unique_id=1817166195]
+z_index = 1
+position = Vector2(9416, -1560)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset9/spike3" unique_id=1762838276]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset9/spike3" unique_id=55808297]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike4" type="Area2D" parent="spikes/spikeset9" unique_id=396086102]
+z_index = 1
+position = Vector2(9416, -1680)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset9/spike4" unique_id=377677682]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset9/spike4" unique_id=245840153]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike5" type="Area2D" parent="spikes/spikeset9" unique_id=1335099612]
+z_index = 1
+position = Vector2(9416, -1808)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset9/spike5" unique_id=773335909]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset9/spike5" unique_id=302241223]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spikeset3" type="Node2D" parent="spikes" unique_id=1877754933]
+position = Vector2(14200, 856)
+
+[node name="spike1" type="Area2D" parent="spikes/spikeset3" unique_id=1867691560]
+z_index = 1
+position = Vector2(9032, -2072)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset3/spike1" unique_id=1998426893]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset3/spike1" unique_id=588295278]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike2" type="Area2D" parent="spikes/spikeset3" unique_id=1066099049]
+z_index = 1
+position = Vector2(9032, -1944)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset3/spike2" unique_id=1449411547]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset3/spike2" unique_id=1924683431]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike3" type="Area2D" parent="spikes/spikeset3" unique_id=1087156109]
+z_index = 1
+position = Vector2(9032, -2328)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset3/spike3" unique_id=68897685]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset3/spike3" unique_id=1505877660]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike4" type="Area2D" parent="spikes/spikeset3" unique_id=1867485851]
+z_index = 1
+position = Vector2(9032, -2456)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset3/spike4" unique_id=1500493504]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset3/spike4" unique_id=1018796670]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike5" type="Area2D" parent="spikes/spikeset3" unique_id=1283119338]
+z_index = 1
+position = Vector2(9032, -2584)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset3/spike5" unique_id=19393900]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset3/spike5" unique_id=1463279669]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike6" type="Area2D" parent="spikes/spikeset3" unique_id=1722053829]
+z_index = 1
+position = Vector2(9032, -2200)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset3/spike6" unique_id=178537203]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset3/spike6" unique_id=188136183]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike7" type="Area2D" parent="spikes/spikeset3" unique_id=112206172]
+z_index = 1
+position = Vector2(9032, -1816)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset3/spike7" unique_id=60302436]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset3/spike7" unique_id=1301238131]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spikeset4" type="Node2D" parent="spikes" unique_id=1630689233]
+position = Vector2(14776, 856)
+
+[node name="spike1" type="Area2D" parent="spikes/spikeset4" unique_id=1896152235]
+z_index = 1
+position = Vector2(9032, -2072)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike1" unique_id=842678876]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike1" unique_id=773902296]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike2" type="Area2D" parent="spikes/spikeset4" unique_id=1334574776]
+z_index = 1
+position = Vector2(9160, -2072)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike2" unique_id=466555986]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike2" unique_id=802636463]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike10" type="Area2D" parent="spikes/spikeset4" unique_id=508651980]
+z_index = 1
+position = Vector2(9288, -2072)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike10" unique_id=2061723067]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike10" unique_id=1650323985]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike11" type="Area2D" parent="spikes/spikeset4" unique_id=1408018795]
+z_index = 1
+position = Vector2(9416, -2072)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike11" unique_id=755354595]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike11" unique_id=559458661]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike12" type="Area2D" parent="spikes/spikeset4" unique_id=1176703751]
+z_index = 1
+position = Vector2(9544, -2072)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike12" unique_id=1627587985]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike12" unique_id=14160289]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike3" type="Area2D" parent="spikes/spikeset4" unique_id=483985332]
+z_index = 1
+position = Vector2(9032, -2328)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike3" unique_id=1476961926]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike3" unique_id=1068603376]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike4" type="Area2D" parent="spikes/spikeset4" unique_id=657674430]
+z_index = 1
+position = Vector2(9032, -2456)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike4" unique_id=1973156634]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike4" unique_id=1059354495]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike5" type="Area2D" parent="spikes/spikeset4" unique_id=640086352]
+z_index = 1
+position = Vector2(9032, -2584)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike5" unique_id=1071025899]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike5" unique_id=1883716098]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike6" type="Area2D" parent="spikes/spikeset4" unique_id=827380842]
+z_index = 1
+position = Vector2(9032, -2200)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike6" unique_id=1480731613]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike6" unique_id=1383598979]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike7" type="Area2D" parent="spikes/spikeset4" unique_id=793215981]
+z_index = 1
+position = Vector2(9032, -2712)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike7" unique_id=961593512]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike7" unique_id=1912232612]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike9" type="Area2D" parent="spikes/spikeset4" unique_id=818811711]
+z_index = 1
+position = Vector2(9032, -2840)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike9" unique_id=785248787]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike9" unique_id=498717771]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike8" type="Area2D" parent="spikes/spikeset4" unique_id=880564114]
+z_index = 1
+position = Vector2(9032, -1688)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset4/spike8" unique_id=348477959]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset4/spike8" unique_id=316157798]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spikeset5" type="Node2D" parent="spikes" unique_id=139097017]
+position = Vector2(14488, 1424)
+
+[node name="spike3" type="Area2D" parent="spikes/spikeset5" unique_id=1230277054]
+z_index = 1
+position = Vector2(8936, -2576)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset5/spike3" unique_id=1962864856]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset5/spike3" unique_id=720228581]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike4" type="Area2D" parent="spikes/spikeset5" unique_id=641267513]
+z_index = 1
+position = Vector2(9128, -2768)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset5/spike4" unique_id=1780456482]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset5/spike4" unique_id=728798558]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike5" type="Area2D" parent="spikes/spikeset5" unique_id=887985153]
+z_index = 1
+position = Vector2(8936, -3024)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset5/spike5" unique_id=1701397528]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset5/spike5" unique_id=671656385]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike6" type="Area2D" parent="spikes/spikeset5" unique_id=1973301302]
+z_index = 1
+position = Vector2(9192, -2256)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset5/spike6" unique_id=1178806488]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset5/spike6" unique_id=989224257]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike7" type="Area2D" parent="spikes/spikeset5" unique_id=541964551]
+z_index = 1
+position = Vector2(9032, -2384)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset5/spike7" unique_id=715674074]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset5/spike7" unique_id=238247142]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike8" type="Area2D" parent="spikes/spikeset5" unique_id=1766682080]
+z_index = 1
+position = Vector2(8872, -2384)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset5/spike8" unique_id=1026055107]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset5/spike8" unique_id=684224289]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spikeset6" type="Node2D" parent="spikes" unique_id=1584637299]
+position = Vector2(14200, 856)
+
+[node name="spike1" type="Area2D" parent="spikes/spikeset6" unique_id=999066802]
+z_index = 1
+position = Vector2(9736, -1176)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset6/spike1" unique_id=420185279]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset6/spike1" unique_id=988560884]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike2" type="Area2D" parent="spikes/spikeset6" unique_id=494052580]
+z_index = 1
+position = Vector2(9736, -1048)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset6/spike2" unique_id=1742586339]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset6/spike2" unique_id=482465640]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike3" type="Area2D" parent="spikes/spikeset6" unique_id=1674037557]
+z_index = 1
+position = Vector2(9736, -1432)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset6/spike3" unique_id=1550312505]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset6/spike3" unique_id=248375076]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike4" type="Area2D" parent="spikes/spikeset6" unique_id=1796603448]
+z_index = 1
+position = Vector2(9736, -1560)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset6/spike4" unique_id=1875097593]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset6/spike4" unique_id=992156696]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike6" type="Area2D" parent="spikes/spikeset6" unique_id=1931742480]
+z_index = 1
+position = Vector2(9736, -1304)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset6/spike6" unique_id=1620271710]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset6/spike6" unique_id=1439254441]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spikeset7" type="Node2D" parent="spikes" unique_id=68509592]
+position = Vector2(14776, 856)
+
+[node name="spike1" type="Area2D" parent="spikes/spikeset7" unique_id=1443443878]
+z_index = 1
+position = Vector2(9672, -1176)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset7/spike1" unique_id=512279493]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset7/spike1" unique_id=824119835]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike2" type="Area2D" parent="spikes/spikeset7" unique_id=719245354]
+z_index = 1
+position = Vector2(9800, -1176)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset7/spike2" unique_id=24119166]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset7/spike2" unique_id=966724607]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike3" type="Area2D" parent="spikes/spikeset7" unique_id=1789073295]
+z_index = 1
+position = Vector2(9672, -1432)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset7/spike3" unique_id=1804233908]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset7/spike3" unique_id=1440215158]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike4" type="Area2D" parent="spikes/spikeset7" unique_id=602441053]
+z_index = 1
+position = Vector2(9672, -1560)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset7/spike4" unique_id=1985739170]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset7/spike4" unique_id=6971521]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike5" type="Area2D" parent="spikes/spikeset7" unique_id=1030856055]
+z_index = 1
+position = Vector2(9672, -1688)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset7/spike5" unique_id=1095379039]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset7/spike5" unique_id=1753930636]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike6" type="Area2D" parent="spikes/spikeset7" unique_id=771587461]
+z_index = 1
+position = Vector2(9672, -1304)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset7/spike6" unique_id=1441676655]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset7/spike6" unique_id=1787318406]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike7" type="Area2D" parent="spikes/spikeset7" unique_id=856549355]
+z_index = 1
+position = Vector2(9672, -1816)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset7/spike7" unique_id=1356040117]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset7/spike7" unique_id=1310790391]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike9" type="Area2D" parent="spikes/spikeset7" unique_id=1406005041]
+z_index = 1
+position = Vector2(9672, -1944)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset7/spike9" unique_id=320724628]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset7/spike9" unique_id=1809434653]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike8" type="Area2D" parent="spikes/spikeset7" unique_id=1741467155]
+z_index = 1
+position = Vector2(9672, -792)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset7/spike8" unique_id=964901202]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset7/spike8" unique_id=442327138]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spikeset8" type="Node2D" parent="spikes" unique_id=229618014]
+position = Vector2(14488, 1424)
+
+[node name="spike3" type="Area2D" parent="spikes/spikeset8" unique_id=883698848]
+z_index = 1
+position = Vector2(9576, -1616)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset8/spike3" unique_id=420876191]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset8/spike3" unique_id=1476474728]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike4" type="Area2D" parent="spikes/spikeset8" unique_id=210625130]
+z_index = 1
+position = Vector2(9832, -1872)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset8/spike4" unique_id=1046161441]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset8/spike4" unique_id=1619959478]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike5" type="Area2D" parent="spikes/spikeset8" unique_id=561901365]
+z_index = 1
+position = Vector2(9576, -2128)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset8/spike5" unique_id=1718137565]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset8/spike5" unique_id=279862023]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike6" type="Area2D" parent="spikes/spikeset8" unique_id=802589698]
+z_index = 1
+position = Vector2(9832, -1360)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset8/spike6" unique_id=1637664735]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset8/spike6" unique_id=1577017420]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike7" type="Area2D" parent="spikes/spikeset8" unique_id=917337793]
+z_index = 1
+position = Vector2(9704, -1488)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset8/spike7" unique_id=188148627]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset8/spike7" unique_id=1719544459]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike8" type="Area2D" parent="spikes/spikeset8" unique_id=1881168839]
+z_index = 1
+position = Vector2(9576, -1488)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/spikeset8/spike8" unique_id=2035229359]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/spikeset8/spike8" unique_id=1203319101]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="circularspikeset1" type="Node2D" parent="spikes" unique_id=1392433456]
+position = Vector2(5856, -560)
+script = ExtResource("22_kgnyo")
+
+[node name="spike9" type="Area2D" parent="spikes/circularspikeset1" unique_id=1144877065]
+z_index = 1
+position = Vector2(7905, -1504)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset1/spike9" unique_id=1106759576]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset1/spike9" unique_id=282348770]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike10" type="Area2D" parent="spikes/circularspikeset1" unique_id=1793964062]
+z_index = 1
+position = Vector2(7905, -1632)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset1/spike10" unique_id=2042589907]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset1/spike10" unique_id=1873165494]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike11" type="Area2D" parent="spikes/circularspikeset1" unique_id=1221666275]
+z_index = 1
+position = Vector2(7905, -1760)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset1/spike11" unique_id=623296543]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset1/spike11" unique_id=1347814359]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="circularspikeset2" type="Node2D" parent="spikes" unique_id=1409888812]
+position = Vector2(5856, -560)
+script = ExtResource("22_kgnyo")
+offset = 1.257
+
+[node name="spike9" type="Area2D" parent="spikes/circularspikeset2" unique_id=109543024]
+z_index = 1
+position = Vector2(7905, -1504)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset2/spike9" unique_id=1180975124]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset2/spike9" unique_id=1434818777]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike10" type="Area2D" parent="spikes/circularspikeset2" unique_id=2003022484]
+z_index = 1
+position = Vector2(7905, -1632)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset2/spike10" unique_id=1646228439]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset2/spike10" unique_id=2135743305]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike11" type="Area2D" parent="spikes/circularspikeset2" unique_id=533403213]
+z_index = 1
+position = Vector2(7905, -1760)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset2/spike11" unique_id=2020348917]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset2/spike11" unique_id=216024965]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="circularspikeset3" type="Node2D" parent="spikes" unique_id=710683017]
+position = Vector2(5856, -560)
+script = ExtResource("22_kgnyo")
+offset = 2.513
+
+[node name="spike9" type="Area2D" parent="spikes/circularspikeset3" unique_id=2003560207]
+z_index = 1
+position = Vector2(7905, -1504)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset3/spike9" unique_id=673440047]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset3/spike9" unique_id=7874464]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike10" type="Area2D" parent="spikes/circularspikeset3" unique_id=150674798]
+z_index = 1
+position = Vector2(7905, -1632)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset3/spike10" unique_id=227644690]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset3/spike10" unique_id=423778707]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike11" type="Area2D" parent="spikes/circularspikeset3" unique_id=1808750379]
+z_index = 1
+position = Vector2(7905, -1760)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset3/spike11" unique_id=500663210]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset3/spike11" unique_id=1085809514]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="circularspikeset4" type="Node2D" parent="spikes" unique_id=1100714388]
+position = Vector2(5856, -560)
+script = ExtResource("22_kgnyo")
+offset = 3.77
+
+[node name="spike9" type="Area2D" parent="spikes/circularspikeset4" unique_id=686474079]
+z_index = 1
+position = Vector2(7905, -1504)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset4/spike9" unique_id=982162872]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset4/spike9" unique_id=577716219]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike10" type="Area2D" parent="spikes/circularspikeset4" unique_id=1107177568]
+z_index = 1
+position = Vector2(7905, -1632)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset4/spike10" unique_id=1902416576]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset4/spike10" unique_id=954344928]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike11" type="Area2D" parent="spikes/circularspikeset4" unique_id=401854051]
+z_index = 1
+position = Vector2(7905, -1760)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset4/spike11" unique_id=1831758863]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset4/spike11" unique_id=347364601]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="circularspikeset6" type="Node2D" parent="spikes" unique_id=1526680857]
+position = Vector2(5855, -560)
+script = ExtResource("22_kgnyo")
+oscspeed = 2
+amph = 900
+
+[node name="spike9" type="Area2D" parent="spikes/circularspikeset6" unique_id=1882324588]
+z_index = 1
+position = Vector2(23521, 112)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset6/spike9" unique_id=2024839065]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset6/spike9" unique_id=222764248]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike10" type="Area2D" parent="spikes/circularspikeset6" unique_id=1105816758]
+z_index = 1
+position = Vector2(23521, -16)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset6/spike10" unique_id=2035175627]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset6/spike10" unique_id=18661087]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike11" type="Area2D" parent="spikes/circularspikeset6" unique_id=1120426517]
+z_index = 1
+position = Vector2(23521, -144)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset6/spike11" unique_id=1412097864]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset6/spike11" unique_id=830556177]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="circularspikeset7" type="Node2D" parent="spikes" unique_id=699444134]
+position = Vector2(5855, -560)
+script = ExtResource("22_kgnyo")
+oscspeed = 2
+amph = 900
+offset = 2.094
+
+[node name="spike9" type="Area2D" parent="spikes/circularspikeset7" unique_id=236254758]
+z_index = 1
+position = Vector2(23521, 112)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset7/spike9" unique_id=297672282]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset7/spike9" unique_id=1968569560]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike10" type="Area2D" parent="spikes/circularspikeset7" unique_id=2061384836]
+z_index = 1
+position = Vector2(23521, -16)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset7/spike10" unique_id=2109656208]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset7/spike10" unique_id=422395127]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike11" type="Area2D" parent="spikes/circularspikeset7" unique_id=855566854]
+z_index = 1
+position = Vector2(23521, -144)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset7/spike11" unique_id=754444729]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset7/spike11" unique_id=1025298604]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="circularspikeset8" type="Node2D" parent="spikes" unique_id=774470448]
+position = Vector2(5855, -560)
+script = ExtResource("22_kgnyo")
+oscspeed = 2
+amph = 900
+offset = 4.189
+
+[node name="spike9" type="Area2D" parent="spikes/circularspikeset8" unique_id=1333487002]
+z_index = 1
+position = Vector2(23521, 112)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset8/spike9" unique_id=1827800724]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset8/spike9" unique_id=1713788110]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike10" type="Area2D" parent="spikes/circularspikeset8" unique_id=1097324787]
+z_index = 1
+position = Vector2(23521, -16)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset8/spike10" unique_id=1148131259]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset8/spike10" unique_id=1166224857]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike11" type="Area2D" parent="spikes/circularspikeset8" unique_id=1145454244]
+z_index = 1
+position = Vector2(23521, -144)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset8/spike11" unique_id=1087862055]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset8/spike11" unique_id=2030205558]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="circularspikeset5" type="Node2D" parent="spikes" unique_id=804496876]
+position = Vector2(5855, -560)
+script = ExtResource("22_kgnyo")
+offset = 5.027
+
+[node name="spike9" type="Area2D" parent="spikes/circularspikeset5" unique_id=680994419]
+z_index = 1
+position = Vector2(7905, -1504)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset5/spike9" unique_id=1562378004]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset5/spike9" unique_id=1258648940]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike10" type="Area2D" parent="spikes/circularspikeset5" unique_id=82191901]
+z_index = 1
+position = Vector2(7905, -1632)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset5/spike10" unique_id=944113003]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset5/spike10" unique_id=1170935963]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="spike11" type="Area2D" parent="spikes/circularspikeset5" unique_id=1378865665]
+z_index = 1
+position = Vector2(7905, -1760)
+script = ExtResource("20_j37ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/circularspikeset5/spike11" unique_id=866408414]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kgnyo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes/circularspikeset5/spike11" unique_id=944675921]
+scale = Vector2(8, 8)
+texture = ExtResource("21_es4dy")
+metadata/_edit_lock_ = true
+
+[node name="Checkpoint3" type="Area2D" parent="." unique_id=373912456]
+position = Vector2(9152, -2560)
+script = ExtResource("22_es4dy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint3" unique_id=344136135]
+scale = Vector2(7, 13)
+shape = SubResource("RectangleShape2D_pg58s")
+metadata/_edit_lock_ = true
+
+[node name="checkpointsprite1" type="Sprite2D" parent="Checkpoint3" unique_id=1753143176]
+scale = Vector2(8, 8)
+texture = ExtResource("14_0afu7")
+metadata/_edit_lock_ = true
+
+[node name="suck1" type="CPUParticles2D" parent="Checkpoint3" unique_id=299838779]
+position = Vector2(0, -48)
+scale = Vector2(24, 24)
+emitting = false
+amount = 30
+texture = ExtResource("15_imlh5")
+lifetime = 0.7
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+radial_accel_min = -400.0
+radial_accel_max = -400.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_lsl8k")
+metadata/_edit_lock_ = true
+
+[node name="explode1" type="CPUParticles2D" parent="Checkpoint3" unique_id=2044255802]
+position = Vector2(0, -48)
+scale = Vector2(24, 24)
+emitting = false
+amount = 90
+texture = ExtResource("15_imlh5")
+lifetime = 0.7
+one_shot = true
+speed_scale = 0.7
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_lsl8k")
+metadata/_edit_lock_ = true
+
+[node name="timer1" type="Timer" parent="Checkpoint3" unique_id=194437177]
+wait_time = 2.0
+one_shot = true
+
+[node name="timer2" type="Timer" parent="Checkpoint3" unique_id=1096485479]
+wait_time = 0.6
+one_shot = true
+
+[node name="Checkpoint4" type="Area2D" parent="." unique_id=1334074605]
+position = Vector2(21952, -2048)
+script = ExtResource("24_g3qe3")
+ckptnum = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint4" unique_id=2076505379]
+scale = Vector2(7, 13)
+shape = SubResource("RectangleShape2D_pg58s")
+metadata/_edit_lock_ = true
+
+[node name="checkpointsprite1" type="Sprite2D" parent="Checkpoint4" unique_id=22110780]
+scale = Vector2(8, 8)
+texture = ExtResource("14_0afu7")
+metadata/_edit_lock_ = true
+
+[node name="suck1" type="CPUParticles2D" parent="Checkpoint4" unique_id=1389492758]
+position = Vector2(0, -48)
+scale = Vector2(24, 24)
+emitting = false
+amount = 30
+texture = ExtResource("15_imlh5")
+lifetime = 0.7
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+radial_accel_min = -400.0
+radial_accel_max = -400.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_lsl8k")
+metadata/_edit_lock_ = true
+
+[node name="explode1" type="CPUParticles2D" parent="Checkpoint4" unique_id=1273724347]
+position = Vector2(0, -48)
+scale = Vector2(24, 24)
+emitting = false
+amount = 90
+texture = ExtResource("15_imlh5")
+lifetime = 0.7
+one_shot = true
+speed_scale = 0.7
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_lsl8k")
+metadata/_edit_lock_ = true
+
+[node name="timer1" type="Timer" parent="Checkpoint4" unique_id=418499500]
+wait_time = 2.0
+one_shot = true
+
+[node name="timer2" type="Timer" parent="Checkpoint4" unique_id=1045986193]
+wait_time = 0.6
+one_shot = true
+
 [connection signal="checkpoint2" from="fade from black" to="player" method="_on_fade_from_black_checkpoint_2"]
-[connection signal="body_entered" from="Main Map/moveablemap3/Checkpoint2" to="player" method="_on_checkpoint_2_body_entered"]
 [connection signal="body_entered" from="Main Map/moveablemap3/Checkpoint2" to="Main Map/moveablemap3/Checkpoint2" method="_on_body_entered"]
+[connection signal="body_entered" from="Main Map/moveablemap3/Checkpoint2" to="player" method="_on_checkpoint_2_body_entered"]
 [connection signal="timeout" from="Main Map/moveablemap3/Checkpoint2/timer1" to="Main Map/moveablemap3/Checkpoint2" method="_on_timer_1_timeout"]
 [connection signal="timeout" from="Main Map/moveablemap3/Checkpoint2/timer2" to="Main Map/moveablemap3/Checkpoint2" method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="Main Map/moveablemap1/booster" to="Main Map/moveablemap1" method="_on_booster_body_entered"]
+[connection signal="next_level" from="Main Map/moveablemap4" to="Main Map/fade to black" method="_on_moveablemap_2_next_level"]
+[connection signal="body_entered" from="Main Map/nextlevel" to="Main Map/moveablemap2" method="_on_nextlevel_body_entered"]
+[connection signal="body_entered" from="Main Map/nextlevel" to="Main Map/moveablemap4" method="_on_nextlevel_body_entered"]
+[connection signal="body_entered" from="spikes/spikeset1/spike1" to="spikes/spikeset1/spike1" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset1/spike1" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset1/spike2" to="spikes/spikeset1/spike2" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset1/spike2" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset1/spike3" to="spikes/spikeset1/spike3" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset1/spike3" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset1/spike4" to="spikes/spikeset1/spike4" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset1/spike4" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset1/spike5" to="spikes/spikeset1/spike5" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset1/spike5" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset1/spike6" to="spikes/spikeset1/spike6" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset1/spike6" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset1/spike7" to="spikes/spikeset1/spike7" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset1/spike7" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset1/spike8" to="spikes/spikeset1/spike8" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset1/spike8" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset2/spike1" to="spikes/spikeset2/spike1" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset2/spike1" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset2/spike2" to="spikes/spikeset2/spike2" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset2/spike2" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset2/spike3" to="spikes/spikeset2/spike3" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset2/spike3" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset2/spike4" to="spikes/spikeset2/spike4" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset2/spike4" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset2/spike5" to="spikes/spikeset2/spike5" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset2/spike5" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset2/spike6" to="spikes/spikeset2/spike6" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset2/spike6" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset2/spike7" to="spikes/spikeset2/spike7" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset2/spike7" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset2/spike8" to="spikes/spikeset2/spike8" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset2/spike8" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset9/spike3" to="spikes/spikeset9/spike3" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset9/spike3" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset9/spike4" to="spikes/spikeset9/spike4" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset9/spike4" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset9/spike5" to="spikes/spikeset9/spike5" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset9/spike5" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset3/spike1" to="spikes/spikeset3/spike1" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset3/spike1" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset3/spike2" to="spikes/spikeset3/spike2" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset3/spike2" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset3/spike3" to="spikes/spikeset3/spike3" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset3/spike3" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset3/spike4" to="spikes/spikeset3/spike4" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset3/spike4" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset3/spike5" to="spikes/spikeset3/spike5" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset3/spike5" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset3/spike6" to="spikes/spikeset3/spike6" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset3/spike6" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset3/spike7" to="spikes/spikeset3/spike7" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset3/spike7" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike1" to="spikes/spikeset4/spike1" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike1" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike2" to="spikes/spikeset4/spike2" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike2" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike10" to="spikes/spikeset4/spike10" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike10" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike11" to="spikes/spikeset4/spike11" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike11" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike12" to="spikes/spikeset4/spike12" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike12" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike3" to="spikes/spikeset4/spike3" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike3" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike4" to="spikes/spikeset4/spike4" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike4" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike5" to="spikes/spikeset4/spike5" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike5" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike6" to="spikes/spikeset4/spike6" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike6" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike7" to="spikes/spikeset4/spike7" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike7" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike9" to="spikes/spikeset4/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset4/spike8" to="spikes/spikeset4/spike8" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset4/spike8" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset5/spike3" to="spikes/spikeset5/spike3" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset5/spike3" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset5/spike4" to="spikes/spikeset5/spike4" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset5/spike4" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset5/spike5" to="spikes/spikeset5/spike5" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset5/spike5" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset5/spike6" to="spikes/spikeset5/spike6" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset5/spike6" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset5/spike7" to="spikes/spikeset5/spike7" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset5/spike7" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset5/spike8" to="spikes/spikeset5/spike8" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset5/spike8" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset6/spike1" to="spikes/spikeset6/spike1" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset6/spike1" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset6/spike2" to="spikes/spikeset6/spike2" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset6/spike2" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset6/spike3" to="spikes/spikeset6/spike3" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset6/spike3" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset6/spike4" to="spikes/spikeset6/spike4" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset6/spike4" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset6/spike6" to="spikes/spikeset6/spike6" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset6/spike6" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset7/spike1" to="spikes/spikeset7/spike1" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset7/spike1" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset7/spike2" to="spikes/spikeset7/spike2" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset7/spike2" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset7/spike3" to="spikes/spikeset7/spike3" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset7/spike3" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset7/spike4" to="spikes/spikeset7/spike4" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset7/spike4" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset7/spike5" to="spikes/spikeset7/spike5" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset7/spike5" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset7/spike6" to="spikes/spikeset7/spike6" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset7/spike6" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset7/spike7" to="spikes/spikeset7/spike7" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset7/spike7" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset7/spike9" to="spikes/spikeset7/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset7/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset7/spike8" to="spikes/spikeset7/spike8" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset7/spike8" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset8/spike3" to="spikes/spikeset8/spike3" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset8/spike3" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset8/spike4" to="spikes/spikeset8/spike4" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset8/spike4" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset8/spike5" to="spikes/spikeset8/spike5" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset8/spike5" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset8/spike6" to="spikes/spikeset8/spike6" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset8/spike6" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset8/spike7" to="spikes/spikeset8/spike7" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset8/spike7" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/spikeset8/spike8" to="spikes/spikeset8/spike8" method="_on_body_entered"]
+[connection signal="killed" from="spikes/spikeset8/spike8" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset1/spike9" to="spikes/circularspikeset1/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset1/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset1/spike10" to="spikes/circularspikeset1/spike10" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset1/spike10" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset1/spike11" to="spikes/circularspikeset1/spike11" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset1/spike11" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset2/spike9" to="spikes/circularspikeset2/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset2/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset2/spike10" to="spikes/circularspikeset2/spike10" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset2/spike10" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset2/spike11" to="spikes/circularspikeset2/spike11" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset2/spike11" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset3/spike9" to="spikes/circularspikeset3/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset3/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset3/spike10" to="spikes/circularspikeset3/spike10" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset3/spike10" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset3/spike11" to="spikes/circularspikeset3/spike11" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset3/spike11" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset4/spike9" to="spikes/circularspikeset4/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset4/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset4/spike10" to="spikes/circularspikeset4/spike10" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset4/spike10" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset4/spike11" to="spikes/circularspikeset4/spike11" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset4/spike11" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset6/spike9" to="spikes/circularspikeset6/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset6/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset6/spike10" to="spikes/circularspikeset6/spike10" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset6/spike10" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset6/spike11" to="spikes/circularspikeset6/spike11" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset6/spike11" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset7/spike9" to="spikes/circularspikeset7/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset7/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset7/spike10" to="spikes/circularspikeset7/spike10" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset7/spike10" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset7/spike11" to="spikes/circularspikeset7/spike11" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset7/spike11" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset8/spike9" to="spikes/circularspikeset8/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset8/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset8/spike10" to="spikes/circularspikeset8/spike10" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset8/spike10" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset8/spike11" to="spikes/circularspikeset8/spike11" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset8/spike11" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset5/spike9" to="spikes/circularspikeset5/spike9" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset5/spike9" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset5/spike10" to="spikes/circularspikeset5/spike10" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset5/spike10" to="player" method="_on_killed"]
+[connection signal="body_entered" from="spikes/circularspikeset5/spike11" to="spikes/circularspikeset5/spike11" method="_on_body_entered"]
+[connection signal="killed" from="spikes/circularspikeset5/spike11" to="player" method="_on_killed"]
+[connection signal="body_entered" from="Checkpoint3" to="player" method="_on_checkpoint_3_body_entered"]
+[connection signal="body_entered" from="Checkpoint3" to="Checkpoint3" method="_on_body_entered"]
+[connection signal="timeout" from="Checkpoint3/timer1" to="Checkpoint3" method="_on_timer_1_timeout"]
+[connection signal="timeout" from="Checkpoint3/timer2" to="Checkpoint3" method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="Checkpoint4" to="player" method="_on_checkpoint_4_body_entered"]
+[connection signal="body_entered" from="Checkpoint4" to="Checkpoint4" method="_on_body_entered"]
+[connection signal="timeout" from="Checkpoint4/timer1" to="Checkpoint4" method="_on_timer_1_timeout"]
+[connection signal="timeout" from="Checkpoint4/timer2" to="Checkpoint4" method="_on_timer_2_timeout"]

@@ -19,6 +19,7 @@ var respawn = Vector2(0, 0)
 @export var zoom_override = Vector2(0.08, 0.08)
 @export var is_respawn_override = false
 @export var respawn_override: Vector2
+@export var sensitivity = 1
 
 
 func _physics_process(delta: float) -> void:
@@ -27,6 +28,8 @@ func _physics_process(delta: float) -> void:
 		velv = 0
 	if is_on_wall():
 		velh = 0
+	if is_on_ceiling():
+		velv = 0
 	
 	#movement bs
 	if Input.get_axis("up", "down") != 0:
@@ -64,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		
 	#camerawork
 	var totalvel = abs(velv) + abs(velh)
-	var target_zoom_value = clamp(remap(totalvel, 0, 1000, 1.0, 0.5), 0.5, 1)
+	var target_zoom_value = clamp(remap(totalvel, 0, 1000*sensitivity, 1.0, 0.5), 0.5, 1)
 	var target_zoom_vector = Vector2(target_zoom_value, target_zoom_value)
 	if is_zoom_override == false:
 		camera.zoom = camera.zoom.lerp(target_zoom_vector, 0.1)
@@ -92,9 +95,29 @@ func _on_checkpoint_1_body_entered(body: Node2D) -> void:
 #Death
 func _on_killed() -> void:
 	self.position = respawn
+	velv = 0
+	velh = 0
 	
 
 
 func _on_checkpoint_2_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D or checkpointno == 2:
+		respawn = Vector2(0, -896.0)
+		
+
+
+
+func _on_checkpoint_3_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D or checkpointno == 3:
+		respawn = Vector2(9152.0, -2560.0)
+
+
+
+func _on_checkpoint_4_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D or checkpointno == 4:
+		respawn = Vector2(21952.0, -2048.0)
+		
+
+func _on_checkpoint_5_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D or checkpointno == 5:
 		respawn = Vector2(0, -896.0)

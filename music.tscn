@@ -14,13 +14,11 @@
 
 [node name="algebra-c1" type="AudioStreamPlayer" parent="." unique_id=1039214356]
 stream = ExtResource("1_khlsn")
-autoplay = true
 
 [node name="algebra-s1" type="AudioStreamPlayer" parent="." unique_id=2069764780]
 stream = ExtResource("2_boywh")
 volume_db = -3.0
 script = ExtResource("3_gqg2j")
-pushallsignals = true
 pushno = 2
 
 [node name="algebra-s2" type="AudioStreamPlayer" parent="." unique_id=1333582480]
