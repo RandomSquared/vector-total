@@ -1,15 +1,14 @@
 extends AudioStreamPlayer
 var isfinished = false
-
+	
 func _ready() -> void:
 	Global.checkpoint.connect(_oncheckpoint)
-	
-	
-func _on_algebras_1_finished() -> void:
-	self.play()
-
 		
 func _oncheckpoint(x):
-	if x == 2:
-		stream.loop_mode = AudioStreamWAV.LOOP_DISABLED
+	if x == 6:
 		isfinished = true
+		stream.loop_mode = AudioStreamWAV.LOOP_DISABLED
+
+
+func _on_algebras_5_finished() -> void:
+	self.play()

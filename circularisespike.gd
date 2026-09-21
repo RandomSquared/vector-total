@@ -3,7 +3,8 @@ extends Node2D
 var time: float = 0.0
 var original_y: float = 0.0
 var original_x: float = 0.0
-@export var oscspeed = 1
+@export var oscspeed = 1.0
+
 @export var ampv = 300
 @export var amph = 800
 @export var offset: float = 0

@@ -19,8 +19,32 @@ var respawn = Vector2(0, 0)
 @export var zoom_override = Vector2(0.08, 0.08)
 @export var is_respawn_override = false
 @export var respawn_override: Vector2
-@export var sensitivity = 1
+@export var sensitivity = 1.0
+var end = false
+var endstarted = false
+@onready var end1 = $Node2D/end1
+@onready var end2 = $Node2D/end2
+@onready var end3 = $Node2D/end3
+@onready var end4 = $Node2D/end4
+@onready var end5 = $Node2D/end5
+@onready var end6 = $Node2D/end6
+@onready var end7 = $Node2D/end7
+@onready var end8 = $Node2D/end8
+@onready var end9 = $Node2D/end9
+@onready var end10 = $Node2D/end10
+signal finale()
 
+func _ready() -> void:
+	end1.hide()
+	end2.hide()
+	end3.hide()
+	end4.hide()
+	end5.hide()
+	end6.hide()
+	end7.hide()
+	end8.hide()
+	end9.hide()
+	end10.hide()
 
 func _physics_process(delta: float) -> void:
 	#ensure momentum isnt built up
@@ -42,6 +66,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ycancel") and horizontality != 0:
 		verticality = 0
 	
+	#ending
+	if end == true:
+		horizontality = 0
+		verticality = 0
+	
 	if verticality != 0 and horizontality != 0:
 		velh += horizontality * sin(45) * multh
 		velv += verticality * sin(45) * multv
@@ -51,8 +80,13 @@ func _physics_process(delta: float) -> void:
 		
 	#gravity & drag & mults
 	velv += gravity
-	velv = velv * (1-drag)
-	velh = velh * (1-drag)
+	
+	if end == true:
+		velv = velv * (1-3*drag)
+		velh = velh * (1-3*drag)
+	else:
+		velv = velv * (1-drag)
+		velh = velh * (1-drag)
 	
 	
 	
@@ -67,20 +101,23 @@ func _physics_process(delta: float) -> void:
 		
 	#camerawork
 	var totalvel = abs(velv) + abs(velh)
-	var target_zoom_value = clamp(remap(totalvel, 0, 1000*sensitivity, 1.0, 0.5), 0.5, 1)
+	var target_zoom_value = clamp(remap(totalvel, 0, 1000*sensitivity, 0.7, 0.4), 0.4, 0.7)
 	var target_zoom_vector = Vector2(target_zoom_value, target_zoom_value)
-	if is_zoom_override == false:
+	if is_zoom_override == false and end == false:
 		camera.zoom = camera.zoom.lerp(target_zoom_vector, 0.1)
-	else:
+	elif is_zoom_override == true and end == false:
 		camera.zoom = camera.zoom.lerp(zoom_override, 0.1)
+	if end == true:
+		camera.zoom = camera.zoom.lerp(Vector2(0.8, 0.8), 0.1)
 	
 	
 	#restart
-	if Input.is_action_just_pressed("restart"):
+	if Input.is_action_just_pressed("restart") and end == false:
 		self.position = respawn
 	
 	if is_respawn_override == true:
 		respawn = respawn_override
+	
 	
 	
 	velocity = Vector2(velh, velv)
@@ -121,3 +158,51 @@ func _on_checkpoint_4_body_entered(body: Node2D) -> void:
 func _on_checkpoint_5_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D or checkpointno == 5:
 		respawn = Vector2(0, -896.0)
+	
+	
+func _on_checkpoint_6_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D or checkpointno == 6:
+		respawn = Vector2(7488.0, 264.0)
+	
+
+
+func _on_checkpoint_7_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D or checkpointno == 7:
+		respawn = Vector2(13120.0, 2688.0)
+
+
+func _on_end_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D and endstarted == false:
+		end = true
+		endstarted = true
+		await get_tree().create_timer(4.0).timeout
+		end1.show()
+		await get_tree().create_timer(2.0).timeout
+		end1.hide()
+		end2.show()
+		await get_tree().create_timer(2.0).timeout
+		end2.hide()
+		end3.show()
+		await get_tree().create_timer(4.0).timeout
+		end3.hide()
+		end4.show()
+		await get_tree().create_timer(2.0).timeout
+		end4.hide()
+		end5.show()
+		await get_tree().create_timer(2.0).timeout
+		end5.hide()
+		end6.show()
+		await get_tree().create_timer(4.0).timeout
+		end6.hide()
+		end7.show()
+		await get_tree().create_timer(3.0).timeout
+		end7.hide()
+		end8.show()
+		await get_tree().create_timer(4.0).timeout
+		end8.hide()
+		end9.show()
+		await get_tree().create_timer(3.0).timeout
+		end9.hide()
+		end10.show()
+		await get_tree().create_timer(2.0).timeout
+		finale.emit()

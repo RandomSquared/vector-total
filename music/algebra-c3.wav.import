@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bvykp6ih6novm"
-path="res://.godot/imported/algebra-c2.wav-e89ac881bc295f044119cb2009306198.sample"
+uid="uid://bie43dpuxvlop"
+path="res://.godot/imported/algebra-c3.wav-fab5960d803ddb0dffeb84855c4f927d.sample"
 
 [deps]
 
-source_file="res://music/algebra-c2.wav"
-dest_files=["res://.godot/imported/algebra-c2.wav-e89ac881bc295f044119cb2009306198.sample"]
+source_file="res://music/algebra-c3.wav"
+dest_files=["res://.godot/imported/algebra-c3.wav-fab5960d803ddb0dffeb84855c4f927d.sample"]
 
 [params]
 

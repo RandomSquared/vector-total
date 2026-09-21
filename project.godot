@@ -15,9 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Vector Total"
-run/main_scene="uid://dq3oeojxam8id"
+run/main_scene="uid://dra8tp8kp3rp2"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+general/default_playback_type.web=0
 
 [autoload]
 
@@ -27,8 +31,8 @@ Music="*uid://dt8ue20fuuxnx"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
